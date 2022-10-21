@@ -85,7 +85,7 @@ export default function MainAppBar({ componentLists, setComponentLists }) {
               noWrap
               component="div"
               sx={{
-                display: { xs: "none", sm: "block" },
+                display: "block",
                 overflow: "visible",
                 textAlign: "center",
               }}
@@ -93,8 +93,9 @@ export default function MainAppBar({ componentLists, setComponentLists }) {
               BAK
             </Typography>
           </Box>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ display: "flex" }}>
             <IconButton
+              sx={{ p: 1 }}
               size="large"
               onClick={colorMode.toggleColorMode}
               color="inherit"
@@ -106,6 +107,7 @@ export default function MainAppBar({ componentLists, setComponentLists }) {
               )}
             </IconButton>
             <IconButton
+              sx={{ p: 1 }}
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
@@ -114,15 +116,6 @@ export default function MainAppBar({ componentLists, setComponentLists }) {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            ></IconButton>
           </Box>
           {/* <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
