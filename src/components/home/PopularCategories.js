@@ -1,12 +1,15 @@
 import React from "react";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import StarsIcon from "@mui/icons-material/Stars";
 import SectionTitle from "../common/SectionTitle";
 import CategoryPaper from "../common/CategoryPaper";
 import Stack from "@mui/material/Stack";
-import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
 
 export default function PopularCategories() {
+  const theme = useTheme();
+  const upperTabletSize = useMediaQuery(theme.breakpoints.up("sm"));
   return (
     <>
       <SectionTitle icon={<StarsIcon />} title="Popular Categories" />
@@ -15,11 +18,12 @@ export default function PopularCategories() {
         spacing={{ xs: 1, sm: 2, md: 4 }}
         justifyContent="space-between"
       >
-        <CategoryPaper icon={<QuestionAnswerIcon />} />
-        <CategoryPaper icon={<LiveTvIcon />} />
-        <CategoryPaper icon={<LiveTvIcon />} />
-        <CategoryPaper icon={<LiveTvIcon />} />
-        <CategoryPaper icon={<LiveTvIcon />} />
+        <CategoryPaper icon="question_answer" />
+        <CategoryPaper icon="question_answer" />
+        <CategoryPaper icon="live_tv" />
+        <CategoryPaper icon="live_tv" />
+        <CategoryPaper icon="live_tv" />
+        {upperTabletSize && <CategoryPaper icon="live_tv" />}
       </Stack>
     </>
   );

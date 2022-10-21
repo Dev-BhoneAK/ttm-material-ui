@@ -10,6 +10,7 @@ export default function SectionTitle(props) {
         alignItems: "center",
         justifyContent: "space-between",
         marginTop: "15px",
+        marginBottom: "15px",
       }}
     >
       <Box
