@@ -33,7 +33,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Suspense fallback={<div>Loading...</div>}>
-          <Container maxWidth="md">
+          <Container maxWidth="md" sx={{ px: { xs: 0 } }}>
             <Routes>
               <Route path="/" exact index element={<Home />} />
             </Routes>
