@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 import React from "react";
 
 export default function SectionTitle(props) {
@@ -23,7 +24,10 @@ export default function SectionTitle(props) {
         {props.icon}
         <Typography variant="h6">{props.title}</Typography>
       </Box>
-      <Typography>Show All</Typography>
+      <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+        Show All
+      </Link>
+      {/* <Typography>Show All</Typography> */}
     </Box>
   );
 }
