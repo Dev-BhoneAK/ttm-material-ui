@@ -18,12 +18,12 @@ export default function PopularCategories() {
         spacing={{ xs: 1, sm: 2, md: 4 }}
         justifyContent="space-between"
       >
-        <CategoryPaper icon="question_answer" />
-        <CategoryPaper icon="question_answer" />
-        <CategoryPaper icon="live_tv" />
-        <CategoryPaper icon="live_tv" />
-        <CategoryPaper icon="live_tv" />
-        {upperTabletSize && <CategoryPaper icon="live_tv" />}
+        <CategoryPaper icon="question_answer" title="Q&A" />
+        <CategoryPaper icon="question_answer" title="Q&A" />
+        <CategoryPaper icon="live_tv" title="Live TV" />
+        <CategoryPaper icon="live_tv" title="Live TV" />
+        <CategoryPaper icon="live_tv" title="Live TV" />
+        {upperTabletSize && <CategoryPaper icon="live_tv" title="Live TV" />}
       </Stack>
     </>
   );
