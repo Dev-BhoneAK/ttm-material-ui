@@ -14,7 +14,6 @@ import Slider from "react-slick";
 export default function PopularNews() {
   const settings = {
     className: "slider variable-width",
-    // infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -28,7 +27,6 @@ export default function PopularNews() {
         <MediaCard />
         <MediaCard />
       </Slider>
-      {/* <MediaCard /> */}
     </>
   );
 }
