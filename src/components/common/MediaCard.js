@@ -17,13 +17,13 @@ export default function MediaCard() {
     <Card sx={{ display: "flex", maxWidth: "280px", mr: 1.5 }}>
       <CardMedia
         component="img"
-        sx={{ width: 100 }}
+        sx={{ width: 80 }}
         image="https://mui.com/static/images/cards/live-from-space.jpg"
         alt="Live from space album cover"
       />
       <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <CardContent sx={{ flex: "1 0 auto" }}>
-          <Typography>Live From Space</Typography>
+        <CardContent sx={{ flex: "1 0 auto", p: "16px 4px 8px 8px" }}>
+          <Typography>Live From Space Lorem Ipsum</Typography>
         </CardContent>
       </Box>
     </Card>
