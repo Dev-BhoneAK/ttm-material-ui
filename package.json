@@ -16,7 +16,9 @@
     "react": "latest",
     "react-dom": "latest",
     "react-router-dom": "^6.4.2",
-    "react-scripts": "latest"
+    "react-scripts": "latest",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
   },
   "browserslist": {
     "production": [
