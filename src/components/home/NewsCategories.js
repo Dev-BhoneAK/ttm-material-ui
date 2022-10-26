@@ -14,12 +14,11 @@ export default function NewsCategories() {
   const [activeSlide, setActiveSlide] = useState(0);
   const settings = {
     className: "slider variable-width",
-    slidesToShow: 6,
+    slidesToShow: 4,
     slidesToScroll: 3,
     infinite: false,
     arrows: false,
     variableWidth: true,
-    afterChange: (current) => setActiveSlide(current),
   };
   return (
     <Slider {...settings} style={{ margin: "20px 0" }}>
