@@ -5,7 +5,6 @@ import StarsIcon from "@mui/icons-material/Stars";
 import SectionTitle from "../common/SectionTitle";
 import CategoryPaper from "../common/CategoryPaper";
 import Stack from "@mui/material/Stack";
-import LiveTvIcon from "@mui/icons-material/LiveTv";
 
 export default function PopularCategories() {
   const theme = useTheme();
