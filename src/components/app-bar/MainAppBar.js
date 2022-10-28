@@ -2,6 +2,7 @@ import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -73,12 +74,12 @@ export default function MainAppBar({ componentLists, setComponentLists }) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ boxShadow: "none" }}>
         <Toolbar>
-          <Box>
+          <Stack alignItems="center">
             <CloudIcon sx={{ fontSize: "28px" }} />
-            <Typography variant="subtitle2" component="div">
+            <Typography variant="caption" component="div">
               26˚C - 35˚C
             </Typography>
-          </Box>
+          </Stack>
           <Box sx={{ flexGrow: 1 }}>
             <Typography
               variant="h6"
