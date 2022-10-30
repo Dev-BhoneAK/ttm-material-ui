@@ -1,0 +1,60 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Local",
+      "image": "",
+      "icon": "newspaper",
+      "parent_category": "news"
+    },
+    {
+      "id": 2,
+      "name": "International",
+      "image": "",
+      "icon": "language",
+      "parent_category": "news"
+    },
+    {
+      "id": 3,
+      "name": "Entertainment",
+      "image": "",
+      "icon": "movie_filter",
+      "parent_category": "news"
+    },
+    {
+      "id": 4,
+      "name": "Sport",
+      "image": "",
+      "icon": "run_circle",
+      "parent_category": "news"
+    },
+    {
+      "id": 5,
+      "name": "Agriculture",
+      "image": "",
+      "icon": "agriculture",
+      "parent_category": "news"
+    },
+    {
+      "id": 6,
+      "name": "Political",
+      "image": "",
+      "icon": "assured_workload",
+      "parent_category": "news"
+    },
+    {
+      "id": 7,
+      "name": "Business",
+      "image": "",
+      "icon": "work_outline",
+      "parent_category": "news"
+    },
+    {
+      "id": 8,
+      "name": "General",
+      "image": "",
+      "icon": "description",
+      "parent_category": "news"
+    }
+  ]
+}
