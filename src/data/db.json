@@ -97,6 +97,48 @@
       "image": "",
       "icon": "school",
       "parent_category": "articles"
+    },
+    {
+      "id": 15,
+      "name": "Drama",
+      "image": "",
+      "icon": "",
+      "parent_category": "novels"
+    },
+    {
+      "id": 16,
+      "name": "Thriller",
+      "image": "",
+      "icon": "",
+      "parent_category": "novels"
+    },
+    {
+      "id": 17,
+      "name": "Sci-Fi",
+      "image": "",
+      "icon": "",
+      "parent_category": "novels"
+    },
+    {
+      "id": 18,
+      "name": "Biography",
+      "image": "",
+      "icon": "",
+      "parent_category": "novels"
+    },
+    {
+      "id": 19,
+      "name": "Psychology",
+      "image": "",
+      "icon": "",
+      "parent_category": "novels"
+    },
+    {
+      "id": 20,
+      "name": "Philosophy",
+      "image": "",
+      "icon": "",
+      "parent_category": "novels"
     }
   ]
 }
