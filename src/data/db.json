@@ -55,6 +55,48 @@
       "image": "",
       "icon": "description",
       "parent_category": "news"
+    },
+    {
+      "id": 9,
+      "name": "Technology",
+      "image": "",
+      "icon": "devices",
+      "parent_category": "articles"
+    },
+    {
+      "id": 10,
+      "name": "Travel",
+      "image": "",
+      "icon": "travel_explore",
+      "parent_category": "articles"
+    },
+    {
+      "id": 11,
+      "name": "Lifestyle",
+      "image": "",
+      "icon": "style",
+      "parent_category": "articles"
+    },
+    {
+      "id": 12,
+      "name": "Health",
+      "image": "",
+      "icon": "health_and_safety",
+      "parent_category": "articles"
+    },
+    {
+      "id": 13,
+      "name": "Environment",
+      "image": "",
+      "icon": "forest",
+      "parent_category": "articles"
+    },
+    {
+      "id": 14,
+      "name": "Education",
+      "image": "",
+      "icon": "school",
+      "parent_category": "articles"
     }
   ]
 }
