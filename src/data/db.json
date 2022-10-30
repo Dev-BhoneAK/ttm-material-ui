@@ -139,6 +139,41 @@
       "image": "",
       "icon": "",
       "parent_category": "novels"
+    },
+    {
+      "id": 21,
+      "name": "Pranks",
+      "image": "",
+      "icon": "",
+      "parent_category": "videos"
+    },
+    {
+      "id": 22,
+      "name": "DIY",
+      "image": "",
+      "icon": "",
+      "parent_category": "videos"
+    },
+    {
+      "id": 23,
+      "name": "Beauty",
+      "image": "",
+      "icon": "",
+      "parent_category": "videos"
+    },
+    {
+      "id": 24,
+      "name": "Life Hack",
+      "image": "",
+      "icon": "",
+      "parent_category": "videos"
+    },
+    {
+      "id": 25,
+      "name": "Fitness",
+      "image": "",
+      "icon": "",
+      "parent_category": "videos"
     }
   ]
 }
