@@ -1,6 +1,5 @@
 import React from "react";
 import SectionTitle from "../common/SectionTitle";
-import ArticleIcon from "@mui/icons-material/Article";
 import MediaCard from "../common/MediaCard";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -19,6 +18,7 @@ export default function MobileTV() {
     <>
       <SectionTitle icon={<LiveTvIcon />} title="Mobile TV" />
       <Slider {...settings}>
+        <MediaCard type="vertical2" margin="true" />
         <MediaCard type="vertical2" margin="true" />
         <MediaCard type="vertical2" margin="true" />
         <MediaCard type="vertical2" margin="true" />
