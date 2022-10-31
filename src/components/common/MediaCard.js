@@ -52,6 +52,7 @@ const VerticalMediaCard2 = ({ upperTabletSize }) => {
     <Card
       sx={{
         mr: 1.5,
+        mb: 1.5,
         width: upperTabletSize ? "260px" : "200px",
       }}
     >
@@ -92,7 +93,7 @@ const ImageMediaCard = ({ upperTabletSize = { upperTabletSize } }) => {
           boxShadow: "0 3px 10px -2px black",
           borderRadius: "12px",
         }}
-        image={require(`../../assets/images/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpeg`)}
+        image={require(`../../assets/images/novels/biography/book-covers-big-2019101610.jpeg`)}
         alt="Live from space album cover"
       />
       <Box
