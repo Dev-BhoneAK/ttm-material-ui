@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-export default function PopularNews() {
+export default function PopularNews({ popularNews }) {
   const settings = {
     className: "slider variable-width",
     slidesToShow: 1,
@@ -18,9 +18,11 @@ export default function PopularNews() {
     <>
       <SectionTitle icon={<TrendingUpIcon />} title="Popular News" />
       <Slider {...settings}>
-        <MediaCard type="horizontal" margin="true" />
-        <MediaCard type="horizontal" margin="true" />
-        <MediaCard type="horizontal" margin="true" />
+        {popularNews.map((popularNew) => (
+          <MediaCard type="horizontal" margin="true" key={popularNew.id} />
+        ))}
+        {/* <MediaCard type="horizontal" margin="true" />
+        <MediaCard type="horizontal" margin="true" /> */}
       </Slider>
     </>
   );
