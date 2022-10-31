@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
+import { getHomeData } from "../utils/api";
 import MainAppBar from "../components/app-bar/MainAppBar";
 import SearchBox from "../components/SearchBox";
 import PopularCategories from "../components/home/PopularCategories";
@@ -15,7 +16,24 @@ import BottomNavigationBar from "../components/app-bar/BottomNavigationBar";
 
 export default function Home() {
   const theme = useTheme();
+  const [homeData, setHomeData] = useState({
+    popularNews: [],
+    newsCategories: [],
+    latestNewsByCategories: [],
+    novels: [],
+    videos: [],
+  });
 
+  useEffect(() => {
+    async function fetchData() {
+      const { popularNews, newsCategories } = await getHomeData();
+      setHomeData({
+        popularNews: popularNews,
+        newsCategories: newsCategories,
+      });
+    }
+    fetchData();
+  }, []);
   return (
     <>
       <MainAppBar />
@@ -29,8 +47,8 @@ export default function Home() {
           p: "1px 16px 20px 16px",
         }}
       >
-        <PopularNews />
-        <NewsCategories />
+        <PopularNews popularNews={homeData.popularNews} />
+        <NewsCategories newsCategories={homeData.newsCategories} />
         <LatestNewsByCategories />
       </Container>
       <Container sx={{ p: "4px 16px 20px 16px" }}>
