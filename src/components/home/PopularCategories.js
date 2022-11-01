@@ -18,11 +18,11 @@ export default function PopularCategories() {
         justifyContent="space-between"
       >
         <CategoryPaper icon="question_answer" title="Q&A" />
-        <CategoryPaper icon="question_answer" title="Q&A" />
-        <CategoryPaper icon="live_tv" title="Live TV" />
-        <CategoryPaper icon="live_tv" title="Live TV" />
-        <CategoryPaper icon="live_tv" title="Live TV" />
-        {upperTabletSize && <CategoryPaper icon="live_tv" title="Live TV" />}
+        <CategoryPaper icon="thunderstorm" title="Weather" />
+        <CategoryPaper icon="calendar_month" title="Events" />
+        <CategoryPaper icon="article" title="Articles" />
+        <CategoryPaper icon="outdoor_grill" title="Cooking" />
+        {upperTabletSize && <CategoryPaper icon="widgets" title="Lucky Draw" />}
       </Stack>
     </>
   );

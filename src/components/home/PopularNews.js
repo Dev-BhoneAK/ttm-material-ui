@@ -19,7 +19,12 @@ export default function PopularNews({ popularNews }) {
       <SectionTitle icon={<TrendingUpIcon />} title="Popular News" />
       <Slider {...settings}>
         {popularNews.map((popularNew) => (
-          <MediaCard type="horizontal" margin="true" key={popularNew.id} />
+          <MediaCard
+            type="horizontal"
+            margin="true"
+            key={popularNew.id}
+            data={popularNew}
+          />
         ))}
         {/* <MediaCard type="horizontal" margin="true" />
         <MediaCard type="horizontal" margin="true" /> */}
