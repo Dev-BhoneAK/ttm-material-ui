@@ -119,7 +119,7 @@ import Slider from "react-slick";
 //   );
 // }
 
-export default function Novels() {
+export default function Novels({ novels }) {
   const settings = {
     className: "slider variable-width",
     slidesToShow: 1,
@@ -131,9 +131,9 @@ export default function Novels() {
     <>
       <SectionTitle icon={<MenuBookIcon />} title="Novels" />
       <Slider {...settings}>
-        <MediaCard type="image" margin="true" />
-        <MediaCard type="image" margin="true" />
-        <MediaCard type="image" margin="true" />
+        {novels.map((novel) => (
+          <MediaCard type="image" margin="true" key={novel.id} data={novel} />
+        ))}
       </Slider>
     </>
   );
