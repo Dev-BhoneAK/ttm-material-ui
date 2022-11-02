@@ -1,12 +1,23 @@
 const newsApi = "http://localhost:8000/news";
 const categoriesApi = "http://localhost:8000/categories";
+const novelsApi = "http://localhost:8000/novels";
+const videosApi = "http://localhost:8000/videos";
 
 export function getHomeData() {
-  return Promise.all([getPopularNews(), getCategories("news")]).then(
-    ([popularNews, newsCategories]) => {
+  return Promise.all([
+    getPopularNews(),
+    getCategories("news"),
+    getLatestNewsByCategories(1),
+    getNovels(),
+    getVideos(),
+  ]).then(
+    ([popularNews, newsCategories, latestNewsByCategories, novels, videos]) => {
       return {
-        popularNews: popularNews,
-        newsCategories: newsCategories,
+        popularNews,
+        newsCategories,
+        latestNewsByCategories,
+        novels,
+        videos,
       };
     }
   );
@@ -24,4 +35,27 @@ export function getCategories(parentCategory) {
     categoriesApi + "?parentCategory=" + parentCategory
   ).then((response) => response.json());
   return categories;
+}
+
+export function getLatestNewsByCategories(categoryId) {
+  const latestNewsByCategories = fetch(
+    newsApi +
+      "?_sort=publishedDate&_order=desc&_limit=4&categoryId=" +
+      categoryId
+  ).then((response) => response.json());
+  return latestNewsByCategories;
+}
+
+export function getNovels() {
+  const novels = fetch(novelsApi + "?_limit=4").then((response) =>
+    response.json()
+  );
+  return novels;
+}
+
+export function getVideos() {
+  const videos = fetch(videosApi + "?_limit=4").then((response) =>
+    response.json()
+  );
+  return videos;
 }

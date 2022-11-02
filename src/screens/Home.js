@@ -26,10 +26,19 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const { popularNews, newsCategories } = await getHomeData();
+      const {
+        popularNews,
+        newsCategories,
+        latestNewsByCategories,
+        novels,
+        videos,
+      } = await getHomeData();
       setHomeData({
-        popularNews: popularNews,
-        newsCategories: newsCategories,
+        popularNews,
+        newsCategories,
+        latestNewsByCategories,
+        novels,
+        videos,
       });
     }
     fetchData();
@@ -49,21 +58,21 @@ export default function Home() {
       >
         <PopularNews popularNews={homeData.popularNews} />
         <NewsCategories newsCategories={homeData.newsCategories} />
-        <LatestNewsByCategories />
+        <LatestNewsByCategories latestNews={homeData.latestNewsByCategories} />
+        <Novels novels={homeData.novels} />
       </Container>
-      <Container sx={{ p: "4px 16px 20px 16px" }}>
+      {/* <Container sx={{ p: "4px 16px 20px 16px" }}>
         <Articles />
-      </Container>
-      <Container
+      </Container> */}
+      {/* <Container
         sx={{
           background: theme.palette.mode === "dark" ? "inherit" : "#e1e1e1",
           p: "1px 16px 20px 16px",
         }}
       >
-        <Novels />
-      </Container>
+      </Container> */}
       <Container sx={{ p: "0 16px 20px 16px", mb: 7 }}>
-        <MobileTV />
+        <MobileTV videos={homeData.videos} />
       </Container>
       <BottomNavigationBar />
     </>
