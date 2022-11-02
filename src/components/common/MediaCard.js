@@ -10,44 +10,55 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-const HorizontalMediaCard = ({ margin }) => {
+const HorizontalMediaCard = ({ data, margin, width }) => {
+  const theme = useTheme();
+  const upperTabletSize = useMediaQuery(theme.breakpoints.up("sm"));
+  const paddingValue = upperTabletSize ? "16px" : "8px";
   return (
-    <Card sx={{ display: "flex", mr: margin === "true" && 1.5 }}>
+    <Card
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        mr: margin === "true" && 1.5,
+        width: width,
+      }}
+    >
       <CardMedia
         component="img"
-        sx={{ width: 80 }}
-        image="https://mui.com/static/images/cards/live-from-space.jpg"
-        alt="Live from space album cover"
+        sx={{ width: 100, height: 90, mr: "8px" }}
+        image={`http://localhost:8000/assets${data?.image}`}
+        alt={data?.title}
       />
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <CardContent sx={{ flex: "1 0 auto", p: "16px 4px 8px 8px" }}>
-          <Typography>Live From Space Lorem Ipsum</Typography>
-        </CardContent>
-      </Box>
+      <CardContent sx={{ padding: 0 }}>
+        <Typography>{data?.title}</Typography>
+      </CardContent>
     </Card>
   );
 };
 
-const VerticalMediaCard = ({ upperTabletSize }) => {
+const VerticalMediaCard = ({ data }) => {
+  const theme = useTheme();
+  const upperTabletSize = useMediaQuery(theme.breakpoints.up("sm"));
   return (
     <Card>
       <CardMedia
         component="img"
-        height={upperTabletSize ? "260px" : "200px"}
-        image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
-        alt="green iguana"
+        height={upperTabletSize ? "240px" : "200px"}
+        image={`http://localhost:8000/assets${data?.image}`}
+        alt={data?.title}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          {data?.title}
         </Typography>
       </CardContent>
     </Card>
   );
 };
 
-const VerticalMediaCard2 = ({ upperTabletSize }) => {
+const VideoCard = ({ data }) => {
+  const theme = useTheme();
+  const upperTabletSize = useMediaQuery(theme.breakpoints.up("sm"));
   return (
     <Card
       sx={{
@@ -60,8 +71,8 @@ const VerticalMediaCard2 = ({ upperTabletSize }) => {
         <CardMedia
           component="img"
           height={upperTabletSize ? "146px" : "112px"}
-          image="https://mui.com/static/images/cards/live-from-space.jpg"
-          alt="green iguana"
+          image={`http://localhost:8000/assets${data?.screenImage}`}
+          alt={data?.title}
         />
         <PlayCircleOutlineIcon
           sx={{
@@ -76,25 +87,28 @@ const VerticalMediaCard2 = ({ upperTabletSize }) => {
       </Box>
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles
+          {data?.title}
         </Typography>
       </CardContent>
     </Card>
   );
 };
 
-const ImageMediaCard = ({ upperTabletSize = { upperTabletSize } }) => {
+const ImageMediaCard = ({ data }) => {
+  const theme = useTheme();
+  const upperTabletSize = useMediaQuery(theme.breakpoints.up("sm"));
   return (
     <Stack alignItems="center" sx={{ mr: 6 }}>
       <CardMedia
         component="img"
+        height={upperTabletSize ? "220px" : "180px"}
         sx={{
           width: upperTabletSize ? "140px" : "120px",
           boxShadow: "0 3px 10px -2px black",
           borderRadius: "12px",
         }}
-        image={require(`../../assets/images/novels/biography/book-covers-big-2019101610.jpeg`)}
-        alt="Live from space album cover"
+        image={`http://localhost:8000/assets${data?.image}`}
+        alt={data?.title}
       />
       <Box
         sx={{
@@ -104,33 +118,29 @@ const ImageMediaCard = ({ upperTabletSize = { upperTabletSize } }) => {
           alignItems: "center",
         }}
       >
-        {/* <CardContent sx={{ flex: "1 0 auto", p: "16px 4px 8px 8px" }}> */}
-        <Typography variant="h6">The King Of Drugs</Typography>
+        <Typography variant="h6">{data?.title}</Typography>
         <Typography variant="body2" color="text.secondary">
           by BAK
         </Typography>
-        {/* </CardContent> */}
       </Box>
     </Stack>
   );
 };
 
 export default function MediaCard(props) {
-  const theme = useTheme();
-  const upperTabletSize = useMediaQuery(theme.breakpoints.up("sm"));
   if (props.type === "horizontal") {
-    return <HorizontalMediaCard margin={props.margin} />;
+    return (
+      <HorizontalMediaCard
+        data={props.data}
+        margin={props.margin}
+        width={props.width}
+      />
+    );
   } else if (props.type === "vertical") {
-    return <VerticalMediaCard upperTabletSize={upperTabletSize} />;
-  } else if (props.type === "vertical2") {
-    return <VerticalMediaCard2 upperTabletSize={upperTabletSize} />;
+    return <VerticalMediaCard data={props.data} />;
+  } else if (props.type === "video") {
+    return <VideoCard data={props.data} />;
   } else {
-    return <ImageMediaCard upperTabletSize={upperTabletSize} />;
+    return <ImageMediaCard data={props.data} />;
   }
-  // return props.type === "horizontal" ? (
-  //   <HorizontalMediaCard props={props} />
-  // ) : (
-  //   <VerticalMediaCard upperTabletSize={upperTabletSize} />
-  // );
-  // props.type === "horizontal" ? horizontalMediaCard : verticalMediaCard;
 }
