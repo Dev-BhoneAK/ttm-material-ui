@@ -7,6 +7,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ArticleIcon from "@mui/icons-material/Article";
 import FeedIcon from "@mui/icons-material/Feed";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
+import LiveTvIcon from "@mui/icons-material/LiveTv";
 
 export default function BottomNavigationBar() {
   const [value, setValue] = React.useState(0);
@@ -25,8 +26,8 @@ export default function BottomNavigationBar() {
       >
         <BottomNavigationAction label="Home" icon={<HomeIcon />} />
         <BottomNavigationAction label="News" icon={<FeedIcon />} />
-        <BottomNavigationAction label="Articles" icon={<ArticleIcon />} />
         <BottomNavigationAction label="Novels" icon={<MenuBookIcon />} />
+        <BottomNavigationAction label="Mobile TV" icon={<LiveTvIcon />} />
         <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
       </BottomNavigation>
     </Paper>
