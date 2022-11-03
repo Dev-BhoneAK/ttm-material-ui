@@ -9,6 +9,7 @@ import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { CardActionArea } from "@mui/material";
 
 const HorizontalMediaCard = ({ data, margin, width }) => {
   const theme = useTheme();
@@ -17,21 +18,21 @@ const HorizontalMediaCard = ({ data, margin, width }) => {
   return (
     <Card
       sx={{
-        display: "flex",
-        alignItems: "center",
         mr: margin === "true" && 1.5,
         width: width,
       }}
     >
-      <CardMedia
-        component="img"
-        sx={{ width: 100, height: 90, mr: "8px" }}
-        image={`http://localhost:8000/assets${data?.image}`}
-        alt={data?.title}
-      />
-      <CardContent sx={{ padding: 0 }}>
-        <Typography>{data?.title}</Typography>
-      </CardContent>
+      <CardActionArea sx={{ display: "flex", alignItems: "center" }}>
+        <CardMedia
+          component="img"
+          sx={{ width: 100, mr: "8px" }}
+          image={`http://localhost:8000/assets${data?.image}`}
+          alt={data?.title}
+        />
+        <CardContent sx={{ padding: 0 }}>
+          <Typography>{data?.title}</Typography>
+        </CardContent>
+      </CardActionArea>
     </Card>
   );
 };
@@ -118,7 +119,7 @@ const ImageMediaCard = ({ data }) => {
           alignItems: "center",
         }}
       >
-        <Typography variant="h6">{data?.title}</Typography>
+        <Typography variant="body1">{data?.title}</Typography>
         <Typography variant="body2" color="text.secondary">
           by BAK
         </Typography>
