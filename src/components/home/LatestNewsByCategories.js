@@ -74,12 +74,11 @@ export default function LatestNewsByCategories({ latestNews }) {
           </Grid>
         </Grid>
       )}
-      <Grid container spacing={1}>
-        <Grid item xs={6}  sx={{ mt: 1.5 }}>
+      <Grid container spacing={1} justifyContent="center">
+        <Grid item xs={12} md={5} sx={{ mt: 1.5 }}>
           <Button
             variant="contained"
             fullWidth
-            // color="inherit"
             endIcon={<NavigateNextIcon />}
             sx={{
               backgroundColor:
