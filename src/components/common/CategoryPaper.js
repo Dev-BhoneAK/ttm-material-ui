@@ -24,14 +24,16 @@ export default function CategoryPaper(props) {
       >
         <Icon
           sx={{
-            fontSize: { xs: 20, md: 30 },
-            color: props.index === props.activeSlide && "blue",
+            fontSize: { xs: 20, md: 32 },
+            color: props.index && props.index === props.activeSlide && "blue",
           }}
         >
           {props.icon}
         </Icon>
       </Paper>
-      <Typography color={props.index === props.activeSlide && "blue"}>
+      <Typography
+        color={props.index && props.index === props.activeSlide && "blue"}
+      >
         {props.title}
       </Typography>
     </Stack>
