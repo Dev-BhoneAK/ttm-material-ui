@@ -10,11 +10,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-export default function NewsCategories() {
+export default function NewsCategories({ newsCategories }) {
   const [activeSlide, setActiveSlide] = useState(0);
   const settings = {
     className: "slider variable-width",
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 3,
     infinite: false,
     arrows: false,
@@ -22,15 +22,17 @@ export default function NewsCategories() {
   };
   return (
     <Slider {...settings} style={{ margin: "20px 0" }}>
-      <CategoryPaper
-        icon="question_answer"
-        title="Q&A"
-        name="news"
-        index="0"
-        activeSlide={activeSlide}
-        setActiveSlide={setActiveSlide}
-      />
-      <CategoryPaper
+      {newsCategories.map((newsCategory, index) => (
+        <CategoryPaper
+          icon={newsCategory.icon}
+          title={newsCategory.name}
+          name="news"
+          index={index}
+          activeSlide={activeSlide}
+          setActiveSlide={setActiveSlide}
+        />
+      ))}
+      {/* <CategoryPaper
         icon="question_answer"
         title="Kitchen"
         name="news"
@@ -93,7 +95,7 @@ export default function NewsCategories() {
         index="8"
         activeSlide={activeSlide}
         setActiveSlide={setActiveSlide}
-      />
+      /> */}
     </Slider>
   );
 }
