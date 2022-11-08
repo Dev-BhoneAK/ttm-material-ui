@@ -30,7 +30,18 @@ const HorizontalMediaCard = ({ data, margin, width }) => {
           alt={data?.title}
         />
         <CardContent sx={{ padding: 0 }}>
-          <Typography>{data?.title}</Typography>
+          <Typography
+            sx={{
+              maxWidth: "100%",
+              display: "-webkit-box",
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: 2,
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+          >
+            {data?.title}
+          </Typography>
         </CardContent>
       </CardActionArea>
     </Card>
