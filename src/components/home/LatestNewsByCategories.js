@@ -8,6 +8,7 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { grey } from "@mui/material/colors";
 
 import MediaCard from "../common/MediaCard";
+import CustomizedButton from "../common/CustomizedButton";
 
 export default function LatestNewsByCategories({ latestNews }) {
   const theme = useTheme();
@@ -76,7 +77,7 @@ export default function LatestNewsByCategories({ latestNews }) {
       )}
       <Grid container spacing={1} justifyContent="center">
         <Grid item xs={12} md={5} sx={{ mt: 1.5 }}>
-          <Button
+          {/* <Button
             variant="contained"
             fullWidth
             endIcon={<NavigateNextIcon />}
@@ -87,7 +88,8 @@ export default function LatestNewsByCategories({ latestNews }) {
             }}
           >
             View More
-          </Button>
+          </Button> */}
+          <CustomizedButton />
         </Grid>
       </Grid>
     </>
