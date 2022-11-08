@@ -24,6 +24,7 @@ export default function NewsCategories({ newsCategories }) {
     <Slider {...settings} style={{ margin: "20px 0" }}>
       {newsCategories.map((newsCategory, index) => (
         <CategoryPaper
+          key={newsCategory.id}
           icon={newsCategory.icon}
           title={newsCategory.name}
           name="news"
@@ -32,70 +33,6 @@ export default function NewsCategories({ newsCategories }) {
           setActiveSlide={setActiveSlide}
         />
       ))}
-      {/* <CategoryPaper
-        icon="question_answer"
-        title="Kitchen"
-        name="news"
-        index="1"
-        activeSlide={activeSlide}
-        setActiveSlide={setActiveSlide}
-      />
-      <CategoryPaper
-        icon="live_tv"
-        title="Live TV"
-        name="news"
-        index="2"
-        activeSlide={activeSlide}
-        setActiveSlide={setActiveSlide}
-      />
-      <CategoryPaper
-        icon="live_tv"
-        title="ABC"
-        name="news"
-        index="3"
-        activeSlide={activeSlide}
-        setActiveSlide={setActiveSlide}
-      />
-      <CategoryPaper
-        icon="live_tv"
-        title="XYZ"
-        name="news"
-        index="4"
-        activeSlide={activeSlide}
-        setActiveSlide={setActiveSlide}
-      />
-      <CategoryPaper
-        icon="question_answer"
-        title="Lucky Draw"
-        name="news"
-        index="5"
-        activeSlide={activeSlide}
-        setActiveSlide={setActiveSlide}
-      />
-      <CategoryPaper
-        icon="question_answer"
-        title="NEWS"
-        name="news"
-        index="6"
-        activeSlide={activeSlide}
-        setActiveSlide={setActiveSlide}
-      />
-      <CategoryPaper
-        icon="live_tv"
-        title="LOCAL"
-        name="news"
-        index="7"
-        activeSlide={activeSlide}
-        setActiveSlide={setActiveSlide}
-      />
-      <CategoryPaper
-        icon="live_tv"
-        title="International"
-        name="news"
-        index="8"
-        activeSlide={activeSlide}
-        setActiveSlide={setActiveSlide}
-      /> */}
     </Slider>
   );
 }
