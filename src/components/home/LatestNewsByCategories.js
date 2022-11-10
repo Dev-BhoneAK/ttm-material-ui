@@ -8,7 +8,7 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { grey } from "@mui/material/colors";
 
 import MediaCard from "../common/MediaCard";
-import CustomizedButton from "../common/CustomizedButton";
+import CustomizedButton from "../common/CustomButton";
 
 export default function LatestNewsByCategories({ latestNews }) {
   const theme = useTheme();
