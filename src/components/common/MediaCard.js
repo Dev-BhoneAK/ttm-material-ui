@@ -1,15 +1,15 @@
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { CardActionArea } from "@mui/material";
+import CustomLink from "./CustomLink";
 
 const HorizontalMediaCard = ({ data, margin, width }) => {
   const theme = useTheme();
@@ -22,28 +22,30 @@ const HorizontalMediaCard = ({ data, margin, width }) => {
         width: width,
       }}
     >
-      <CardActionArea sx={{ display: "flex", alignItems: "center" }}>
-        <CardMedia
-          component="img"
-          sx={{ width: 100, mr: "8px" }}
-          image={`http://localhost:8000/assets${data?.image}`}
-          alt={data?.title}
-        />
-        <CardContent sx={{ padding: 0 }}>
-          <Typography
-            sx={{
-              maxWidth: "100%",
-              display: "-webkit-box",
-              WebkitBoxOrient: "vertical",
-              WebkitLineClamp: 2,
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-            }}
-          >
-            {data?.title}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+      <CustomLink to={`/news/${data?.id}`}>
+        <CardActionArea sx={{ display: "flex", alignItems: "center" }}>
+          <CardMedia
+            component="img"
+            sx={{ width: 100, mr: "8px" }}
+            image={`http://localhost:8000/assets${data?.image}`}
+            alt={data?.title}
+          />
+          <CardContent sx={{ padding: 0 }}>
+            <Typography
+              sx={{
+                maxWidth: "100%",
+                display: "-webkit-box",
+                WebkitBoxOrient: "vertical",
+                WebkitLineClamp: 2,
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              {data?.title}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </CustomLink>
     </Card>
   );
 };
