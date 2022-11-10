@@ -2,7 +2,6 @@ import React from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MediaCard from "../common/MediaCard";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -22,7 +21,7 @@ export default function PopularNews({ popularNews }) {
   };
   return (
     <>
-      <SectionTitle icon={<TrendingUpIcon />} title="Popular News" />
+      <SectionTitle icon="trending_up" title="Popular News" />
       <Slider {...settings}>
         {popularNews.map((popularNew) => (
           <MediaCard

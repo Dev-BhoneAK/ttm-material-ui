@@ -4,7 +4,6 @@ import MediaCard from "../common/MediaCard";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import LiveTvIcon from "@mui/icons-material/LiveTv";
 
 export default function MobileTV({ videos }) {
   const settings = {
@@ -16,15 +15,10 @@ export default function MobileTV({ videos }) {
   };
   return (
     <>
-      <SectionTitle icon={<LiveTvIcon />} title="Mobile TV" />
+      <SectionTitle icon="live_tv" title="Mobile TV" />
       <Slider {...settings}>
         {videos.map((video) => (
-          <MediaCard
-            type="video"
-            margin="true"
-            key={video.id}
-            data={video}
-          />
+          <MediaCard type="video" margin="true" key={video.id} data={video} />
         ))}
       </Slider>
     </>
