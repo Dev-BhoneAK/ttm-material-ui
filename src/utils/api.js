@@ -59,3 +59,10 @@ export function getVideos() {
   );
   return videos;
 }
+
+export function getNewsDetail(postId) {
+  const newsDetail = fetch(newsApi + "?id=" + postId).then((response) =>
+    response.json()
+  );
+  return newsDetail;
+}
