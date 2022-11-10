@@ -5,6 +5,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import Home from "./screens/Home";
+import NewsArticlesDetail from "./screens/NewsArticlesDetail";
 import ColorModeContext from "./context/ColorModeContext";
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
           <Container maxWidth="md" sx={{ px: { xs: 0 } }}>
             <Routes>
               <Route path="/" exact index element={<Home />} />
+              <Route path="/news/:news_id" element={<NewsArticlesDetail />} />
             </Routes>
           </Container>
         </Suspense>
