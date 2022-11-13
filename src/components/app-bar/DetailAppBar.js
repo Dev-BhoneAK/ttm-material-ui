@@ -35,30 +35,58 @@ HideOnScroll.propTypes = {
 };
 
 export default function DetailAppBar(props) {
+  const appBarRef = React.useRef(null);
+
+  React.useEffect(() => {
+    let oldScrollPosition = window.scrollY;
+
+    window.addEventListener("scroll", handleScroll(oldScrollPosition));
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = (prevScrollPos) => () => {
+    const currentScrollPos = window.scrollY;
+    if (prevScrollPos > currentScrollPos) {
+      console.log(currentScrollPos + " is greater than " + prevScrollPos);
+      appBarRef.current.style.transform = "translateY(0)";
+    } else {
+      console.log(currentScrollPos + " is less than " + prevScrollPos);
+      appBarRef.current.style.transform = "translateY(-200px)";
+    }
+    prevScrollPos = currentScrollPos;
+  };
+
   return (
     <>
       <CssBaseline />
-      <HideOnScroll {...props}>
-        <Box position="absolute" sx={{ left: 0, top: 0, margin: "auto" }}>
-          <AppBar
-            position="fixed"
-            sx={{
-              // padding: "2em",
-              // left: 0,
-              // top: "0px",
-              // transform: "translate(-27%)",
-              backgroundColor: "rgba(0,0,0,0.3)",
-              width: "50%",
-            }}
-          >
-            <Toolbar>
-              <Typography variant="h6" component="div">
-                Scroll to hide App bar
-              </Typography>
-            </Toolbar>
-          </AppBar>
-        </Box>
-      </HideOnScroll>
+      {/* <HideOnScroll {...props}> */}
+      <AppBar
+        position="absolute"
+        // transitionProperty="transform"
+        // transitionDuration=".3s"
+        // transitionTimingFunction="ease-in-out"
+        ref={appBarRef}
+        sx={{
+          left: 0,
+          top: 0,
+          transform: "translateY(0)",
+          transitionProperty: "transform",
+          transitionDuration: "3s",
+          transitionTimingFunction: "ease-in-out",
+          backgroundColor: "rgba(0,0,0,0.3)",
+          // width: "50%",
+        }}
+      >
+        <Toolbar>
+          <Typography variant="h6" component="div">
+            Scroll to hide App bar
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      {/* </HideOnScroll> */}
     </>
   );
 }
