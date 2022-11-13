@@ -5,19 +5,21 @@ import Image from "mui-image";
 import DetailAppBar from "../app-bar/DetailAppBar";
 
 export default function ImageAppBar(props) {
-  console.log("props", props);
   return (
-    <Box sx={{ position: "relative" }}>
-      <DetailAppBar />
-      <Image
-        src={`http://localhost:8000/assets${props?.image}`}
-        width="100%"
-        showLoading
-        duration={3000}
-        easing="ease-in-out"
-        bgColor="inherit"
-      />
-      <Container>
+    <Container
+      maxWidth="md"
+      sx={{ position: "relative", px: { xs: 0 }, margin: "0 auto" }}
+    >
+      <Container position="absolute" sx={{ left: 0, top: 0, margin: "0 auto" }}>
+        <DetailAppBar />
+        <Image
+          src={`http://localhost:8000/assets${props?.image}`}
+          width="100%"
+          showLoading
+          duration={3000}
+          easing="ease-in-out"
+          bgColor="inherit"
+        />
         <Box>
           {[...new Array(30)]
             .map(
@@ -29,6 +31,6 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
             .join("\n")}
         </Box>
       </Container>
-    </Box>
+    </Container>
   );
 }

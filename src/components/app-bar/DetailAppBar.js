@@ -36,21 +36,29 @@ HideOnScroll.propTypes = {
 
 export default function DetailAppBar(props) {
   return (
-    <React.Fragment>
+    <>
       <CssBaseline />
       <HideOnScroll {...props}>
-        <AppBar
-          position="fixed"
-          sx={{ top: 0, left: 0, backgroundColor: "rgba(0,0,0,0.3)" }}
-        >
-          <Toolbar>
-            <Typography variant="h6" component="div">
-              Scroll to hide App bar
-            </Typography>
-          </Toolbar>
-        </AppBar>
+        <Box position="absolute" sx={{ left: 0, top: 0, margin: "auto" }}>
+          <AppBar
+            position="fixed"
+            sx={{
+              // padding: "2em",
+              // left: 0,
+              // top: "0px",
+              // transform: "translate(-27%)",
+              backgroundColor: "rgba(0,0,0,0.3)",
+              width: "50%",
+            }}
+          >
+            <Toolbar>
+              <Typography variant="h6" component="div">
+                Scroll to hide App bar
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </Box>
       </HideOnScroll>
-      {/* <Toolbar /> */}
-    </React.Fragment>
+    </>
   );
 }
