@@ -12,7 +12,6 @@ export default function CustomTypo(props) {
     <Typography
       variant={props.variant}
       sx={{
-        // ml: "5px",
         color: theme.palette.mode === "dark" ? "#c4c4c4" : grey[800],
         ...props.styles,
       }}

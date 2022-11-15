@@ -2,8 +2,7 @@ import * as React from "react";
 import { useTheme } from "@mui/material/styles";
 import Icon from "@mui/material/Icon";
 
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { grey, purple } from "@mui/material/colors";
+import { grey } from "@mui/material/colors";
 
 const setColor = (props, theme) => {
   let color = "";
