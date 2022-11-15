@@ -7,9 +7,12 @@ import Container from "@mui/material/Container";
 import Home from "./screens/Home";
 import NewsArticlesDetail from "./screens/NewsArticlesDetail";
 import ColorModeContext from "./context/ColorModeContext";
+import { responsiveFontSizes } from "@mui/material/styles";
 
 export default function App() {
   const [mode, setMode] = React.useState("light");
+  let fontTheme = createTheme();
+  fontTheme = responsiveFontSizes(fontTheme);
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
@@ -32,20 +35,18 @@ export default function App() {
     // <StyledEngineProvider injectFirst>
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Suspense fallback={<div>Loading...</div>}>
-          <Container maxWidth="md" sx={{ px: { xs: 0 } }}>
-            <Routes>
-              <Route path="/" exact index element={<Home />} />
-              <Route path="/news/:news_id" element={<NewsArticlesDetail />} />
-            </Routes>
-          </Container>
-        </Suspense>
+        <ThemeProvider theme={fontTheme}>
+          <CssBaseline />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Container maxWidth="md" sx={{ px: { xs: 0 } }}>
+              <Routes>
+                <Route path="/" exact index element={<Home />} />
+                <Route path="/news/:news_id" element={<NewsArticlesDetail />} />
+              </Routes>
+            </Container>
+          </Suspense>
+        </ThemeProvider>
       </ThemeProvider>
     </ColorModeContext.Provider>
-    // </StyledEngineProvider>
-    // <Routes>
-    //   <Route path="/" exact index element={<Home />} />
-    // </Routes>
   );
 }
