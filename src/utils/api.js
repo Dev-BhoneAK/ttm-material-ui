@@ -61,8 +61,8 @@ export function getVideos() {
 }
 
 export function getNewsDetail(postId) {
-  const newsDetail = fetch(newsApi + "?id=" + postId).then((response) =>
-    response.json()
-  );
+  const newsDetail = fetch(newsApi + "?id=" + postId)
+    .then((response) => response.json())
+    .then((data) => data[0]);
   return newsDetail;
 }
