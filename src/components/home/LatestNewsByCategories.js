@@ -1,94 +1,94 @@
-import React from "react";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
-
+import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { grey } from "@mui/material/colors";
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
 
 import MediaCard from "../common/MediaCard";
 import CustomizedButton from "../common/CustomButton";
+import SectionTitle from "../common/SectionTitle";
+import CustomLink from "../common/CustomLink"
+import CustomIcon from "../common/CustomIcon";
+import { getLatestNewsByCategories } from "../../utils/api";
 
-export default function LatestNewsByCategories({ latestNews }) {
-  const theme = useTheme();
-  const upperTabletSize = useMediaQuery(theme.breakpoints.up("sm"));
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
+export default function LatestNewsByCategories({ newsCategories }) {
+
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
+  const [latestNews, setLatestNews] = useState([]);
+
+  const handleChange = (event, newValue) => {
+    console.log(newValue);
+    setActiveTabIndex(newValue);
+  };
+
+  useEffect(() => {
+    getLatestNewsByCategories(newsCategories[activeTabIndex]?.id).then((data) => {
+      setLatestNews(data);
+    });
+  
+  }, [activeTabIndex]);
+
+  useEffect(() => {
+    
+    getLatestNewsByCategories(1).then((data) => {
+      setLatestNews(data);
+    });
+  
+  }, []);
+
   return (
     <>
-      {upperTabletSize ? (
-        <Grid container spacing={2}>
-          <Grid item md={6}>
-            <MediaCard
-              type="vertical"
-              key={latestNews[0]?.id}
-              data={latestNews[0]}
-            />
-          </Grid>
-          <Grid item md={6}>
-            <MediaCard
-              type="vertical"
-              key={latestNews[1]?.id}
-              data={latestNews[1]}
-            />
-          </Grid>
-          <Grid item md={6}>
-            <MediaCard
-              type="horizontal"
-              margin="false"
-              key={latestNews[2]?.id}
-              data={latestNews[2]}
-            />
-          </Grid>
-          <Grid item md={6}>
-            <MediaCard
-              type="horizontal"
-              margin="false"
-              key={latestNews[3]?.id}
-              data={latestNews[3]}
-            />
-          </Grid>
-        </Grid>
-      ) : (
-        <Grid container spacing={1}>
-          <Grid item xs={12}>
-            <MediaCard
-              type="vertical"
-              key={latestNews[0]?.id}
-              data={latestNews[0]}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <MediaCard
-              type="horizontal"
-              margin="false"
-              key={latestNews[1]?.id}
-              data={latestNews[1]}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <MediaCard
-              type="horizontal"
-              margin="false"
-              key={latestNews[2]?.id}
-              data={latestNews[2]}
-            />
-          </Grid>
-        </Grid>
-      )}
-      <Grid container spacing={1} justifyContent="center">
-        <Grid item xs={12} md={5} sx={{ mt: 1.5 }}>
-          {/* <Button
-            variant="contained"
-            fullWidth
-            endIcon={<NavigateNextIcon />}
-            sx={{
-              backgroundColor:
-                theme.palette.mode === "dark" ? "inherit" : "#fff",
-              color: theme.palette.mode === "dark" ? "#fff" : grey[800],
-            }}
-          >
-            View More
-          </Button> */}
+      <SectionTitle icon="newspaper" title="Latest News By Categories" />
+      <Tabs value={activeTabIndex}
+        onChange={handleChange}
+        variant="scrollable"
+        scrollButtons="auto"
+        aria-label="icon label tabs example">
+        {
+          newsCategories.map((newsCategory, index) => (
+            <Tab label={newsCategory.name} 
+            {...a11yProps(index)} 
+            icon={<CustomIcon icon={newsCategory.icon} styles={{fontSize: { xs: "1rem", md: "1.5rem" }, mb: 1}}/>} />
+          ))
+        }
+      </Tabs>
+      <Grid container spacing={2}>
+        {
+          latestNews.map((data, index) => (
+            index < 2 ? (
+
+              <Grid item xs={12} sm={6} sx={{ display: index === 1 ? { xs: 'none', sm: 'block' } : undefined }}>
+                <CustomLink to={`/news/${data?.id}`}>
+                  <MediaCard
+                    type="vertical"
+                    key={data?.id}
+                    data={data}
+                  />
+                </CustomLink>
+              </Grid>
+            ) : (
+
+              <Grid item xs={12} sm={6}>
+                <MediaCard
+                  type="horizontal"
+                  margin="false"
+                  key={data?.id}
+                  data={data}
+                />
+              </Grid>
+            ))
+          )
+        }
+      </Grid>
+
+      <Grid container spacing={1}>
+        <Grid item xs={12} md={12} sx={{ mt: 1.5, display: 'flex' }} justifyContent="center">
           <CustomizedButton />
         </Grid>
       </Grid>

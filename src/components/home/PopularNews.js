@@ -32,8 +32,6 @@ export default function PopularNews({ popularNews }) {
             width={upperTabletSize ? "380px" : "280px"}
           />
         ))}
-        {/* <MediaCard type="horizontal" margin="true" />
-        <MediaCard type="horizontal" margin="true" /> */}
       </Slider>
     </>
   );
