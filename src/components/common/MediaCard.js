@@ -39,6 +39,7 @@ const HorizontalMediaCard = ({ data, margin, width }) => {
                 WebkitLineClamp: 2,
                 overflow: "hidden",
                 textOverflow: "ellipsis",
+                variant: "subtitle2",
               }}
             >
               {data?.title}
@@ -55,6 +56,7 @@ const VerticalMediaCard = ({ data }) => {
   const upperTabletSize = useMediaQuery(theme.breakpoints.up("sm"));
   return (
     <Card>
+        <CustomLink to={`/news/${data?.id}`}>
       <CardMedia
         component="img"
         height={upperTabletSize ? "240px" : "200px"}
@@ -66,6 +68,7 @@ const VerticalMediaCard = ({ data }) => {
           {data?.title}
         </Typography>
       </CardContent>
+        </CustomLink>
     </Card>
   );
 };
@@ -145,9 +148,7 @@ export default function MediaCard(props) {
   if (props.type === "horizontal") {
     return (
       <HorizontalMediaCard
-        data={props.data}
-        margin={props.margin}
-        width={props.width}
+        {...props}
       />
     );
   } else if (props.type === "vertical") {

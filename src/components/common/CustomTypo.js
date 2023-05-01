@@ -1,10 +1,18 @@
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { grey, purple } from "@mui/material/colors";
+
+const setColor = (props, theme) => {
+    let color = "";
+    if (props.index && props.index === props.activeSlide) {
+        color = "blue";
+    } else {
+        color = theme.palette.mode === "dark" ? "#fff" : grey[800];
+    }
+    return color;
+};
 
 export default function CustomTypo(props) {
   const theme = useTheme();
@@ -12,7 +20,7 @@ export default function CustomTypo(props) {
     <Typography
       variant={props.variant}
       sx={{
-        color: theme.palette.mode === "dark" ? "#c4c4c4" : grey[800],
+        color: setColor(props, theme),
         ...props.styles,
       }}
     >
