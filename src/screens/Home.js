@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Box } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import {createTheme, responsiveFontSizes, useTheme} from "@mui/material/styles";
 
 import { getHomeData } from "../utils/api";
 import MainAppBar from "../components/app-bar/MainAppBar";
@@ -13,13 +13,13 @@ import Articles from "../components/home/Articles";
 import Novels from "../components/home/Novels";
 import MobileTV from "../components/home/MobileTV";
 import BottomNavigationBar from "../components/app-bar/BottomNavigationBar";
+import Typography from "@mui/material/Typography";
 
 export default function Home() {
   const theme = useTheme();
   const [homeData, setHomeData] = useState({
     popularNews: [],
     newsCategories: [],
-    latestNewsByCategories: [],
     novels: [],
     videos: [],
   });
@@ -29,14 +29,12 @@ export default function Home() {
       const {
         popularNews,
         newsCategories,
-        latestNewsByCategories,
         novels,
         videos,
       } = await getHomeData();
       setHomeData({
         popularNews,
         newsCategories,
-        latestNewsByCategories,
         novels,
         videos,
       });
@@ -57,8 +55,8 @@ export default function Home() {
         }}
       >
         <PopularNews popularNews={homeData.popularNews} />
-        <NewsCategories newsCategories={homeData.newsCategories} />
-        <LatestNewsByCategories latestNews={homeData.latestNewsByCategories} />
+        {/*<NewsCategories newsCategories={homeData.newsCategories} />*/}
+        <LatestNewsByCategories newsCategories={homeData.newsCategories}/>
         <Novels novels={homeData.novels} />
       </Container>
       {/* <Container sx={{ p: "4px 16px 20px 16px" }}>

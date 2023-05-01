@@ -17,7 +17,7 @@ export default function NewsArticlesDetail() {
   useEffect(() => {
     async function fetchData() {
       const newsDetail = await getNewsDetail(news_id);
-
+      
       setNewsDetailData(newsDetail);
     }
     fetchData();

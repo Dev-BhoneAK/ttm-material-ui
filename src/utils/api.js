@@ -7,15 +7,13 @@ export function getHomeData() {
   return Promise.all([
     getPopularNews(),
     getCategories("news"),
-    getLatestNewsByCategories(1),
     getNovels(),
     getVideos(),
   ]).then(
-    ([popularNews, newsCategories, latestNewsByCategories, novels, videos]) => {
+    ([popularNews, newsCategories, novels, videos]) => {
       return {
         popularNews,
         newsCategories,
-        latestNewsByCategories,
         novels,
         videos,
       };
