@@ -8,11 +8,10 @@ import Home from "./screens/Home";
 import NewsArticlesDetail from "./screens/NewsArticlesDetail";
 import ColorModeContext from "./context/ColorModeContext";
 import { responsiveFontSizes } from "@mui/material/styles";
+import Typography from '@mui/material/Typography';
 
 export default function App() {
   const [mode, setMode] = React.useState("light");
-  let fontTheme = createTheme();
-  fontTheme = responsiveFontSizes(fontTheme);
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
@@ -23,22 +22,25 @@ export default function App() {
   );
 
   const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode,
-        },
-      }),
+    () => {
+        return createTheme({
+            palette: {
+                mode,
+            },
+        })
+    },
     [mode]
   );
-  return (
-    // <StyledEngineProvider injectFirst>
+
+  const themeWithResponsiveFont = responsiveFontSizes(theme);
+
+    return (
     <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>
-        <ThemeProvider theme={fontTheme}>
+        <ThemeProvider theme={themeWithResponsiveFont}>
           <CssBaseline />
           <Suspense fallback={<div>Loading...</div>}>
             <Container maxWidth="md" sx={{ px: { xs: 0 } }}>
+            <Typography variant="subtitle1">Responsive h3</Typography>
               <Routes>
                 <Route path="/" exact index element={<Home />} />
                 <Route path="/news/:news_id" element={<NewsArticlesDetail />} />
@@ -46,7 +48,6 @@ export default function App() {
             </Container>
           </Suspense>
         </ThemeProvider>
-      </ThemeProvider>
     </ColorModeContext.Provider>
   );
 }

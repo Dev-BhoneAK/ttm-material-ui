@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { grey, purple } from "@mui/material/colors";
+import useUpperTabletSize from "../../hooks/useUpperTabletSize";
 
 const CustomizedButton = styled(Button)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#222" : "#fff",
@@ -29,11 +30,15 @@ const CustomizedButton = styled(Button)(({ theme }) => ({
 //   },
 // }));
 
+// 
+
 export default function CustomButton() {
+
+  const upperTabletSize = useUpperTabletSize();
   return (
     <CustomizedButton
       variant="contained"
-      fullWidth
+      fullWidth={upperTabletSize ? false : true}
       endIcon={<NavigateNextIcon />}
       disableRipple
     >
