@@ -13,15 +13,16 @@ export default function PopularCategories() {
       <SectionTitle icon="stars" title="Popular Categories" />
       <Stack
         direction="row"
-        spacing={{ xs: 1, sm: 2, md: 4 }}
-        justifyContent="space-between"
+        // spacing={{ xs: 1, sm: 2, md: 4 }}
+        justifyContent="space-evenly"
+        alignItems="center"
       >
         <CategoryPaper icon="question_answer" title="Q&A" />
         <CategoryPaper icon="thunderstorm" title="Weather" />
         <CategoryPaper icon="calendar_month" title="Events" />
         <CategoryPaper icon="article" title="Articles" />
-        <CategoryPaper icon="outdoor_grill" title="Cooking" />
-        {upperTabletSize && <CategoryPaper icon="widgets" title="Lucky Draw" />}
+        <CategoryPaper icon="currency_exchange" title="Currency" />
+        {/* {upperTabletSize && <CategoryPaper icon="widgets" title="Lucky Draw" />} */}
       </Stack>
     </>
   );
