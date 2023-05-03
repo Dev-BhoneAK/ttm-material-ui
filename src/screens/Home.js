@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Container, Box } from "@mui/material";
-import {createTheme, responsiveFontSizes, useTheme} from "@mui/material/styles";
+import {
+  createTheme,
+  responsiveFontSizes,
+  useTheme,
+} from "@mui/material/styles";
 
 import { getHomeData } from "../utils/api";
 import MainAppBar from "../components/app-bar/MainAppBar";
@@ -26,12 +30,8 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const {
-        popularNews,
-        newsCategories,
-        novels,
-        videos,
-      } = await getHomeData();
+      const { popularNews, newsCategories, novels, videos } =
+        await getHomeData();
       setHomeData({
         popularNews,
         newsCategories,
@@ -44,7 +44,7 @@ export default function Home() {
   return (
     <>
       <MainAppBar />
-      <Container sx={{ p: "12px 16px" }}>
+      <Container>
         <SearchBox />
         <PopularCategories />
       </Container>
@@ -56,7 +56,7 @@ export default function Home() {
       >
         <PopularNews popularNews={homeData.popularNews} />
         {/*<NewsCategories newsCategories={homeData.newsCategories} />*/}
-        <LatestNewsByCategories newsCategories={homeData.newsCategories}/>
+        <LatestNewsByCategories newsCategories={homeData.newsCategories} />
         <Novels novels={homeData.novels} />
       </Container>
       {/* <Container sx={{ p: "4px 16px 20px 16px" }}>
