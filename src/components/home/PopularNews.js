@@ -2,6 +2,7 @@ import React from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MediaCard from "../common/MediaCard";
+import { Container } from "@mui/material";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -20,7 +21,7 @@ export default function PopularNews({ popularNews }) {
     variableWidth: true,
   };
   return (
-    <>
+    <Container>
       <SectionTitle icon="trending_up" title="Popular News" />
       <Slider {...settings}>
         {popularNews.map((popularNew) => (
@@ -33,6 +34,6 @@ export default function PopularNews({ popularNews }) {
           />
         ))}
       </Slider>
-    </>
+    </Container>
   );
 }
