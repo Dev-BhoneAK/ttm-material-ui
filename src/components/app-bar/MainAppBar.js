@@ -15,10 +15,9 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 import ColorModeContext from "../../context/ColorModeContext";
 import CloudIcon from "@mui/icons-material/Cloud";
 
-export default function MainAppBar({ componentLists, setComponentLists }) {
+export default function MainAppBar({ sectionSpacing }) {
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
-
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [query, setQuery] = React.useState("");
@@ -43,35 +42,35 @@ export default function MainAppBar({ componentLists, setComponentLists }) {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const handleSearchInput = (e) => {
-    setQuery(e.target.value);
-    if (e.target.value === "") {
-      setComponentLists(componentListData);
-    } else {
-      setComponentLists(
-        componentLists.filter((component) => {
-          return component.name
-            .toLowerCase()
-            .includes(e.target.value.toLowerCase());
-        })
-      );
-    }
-    // const results = posts.filter((post) => {
-    //   if (e.target.value === "") return posts;
-    //   return post.title.toLowerCase().includes(e.target.value.toLowerCase());
-    // });
-    // setstate({
-    //   query: e.target.value,
-    //   list: results,
-    // });
-  };
+  // const handleSearchInput = (e) => {
+  //   setQuery(e.target.value);
+  //   if (e.target.value === "") {
+  //     setComponentLists(componentListData);
+  //   } else {
+  //     setComponentLists(
+  //       componentLists.filter((component) => {
+  //         return component.name
+  //           .toLowerCase()
+  //           .includes(e.target.value.toLowerCase());
+  //       })
+  //     );
+  //   }
+  // const results = posts.filter((post) => {
+  //   if (e.target.value === "") return posts;
+  //   return post.title.toLowerCase().includes(e.target.value.toLowerCase());
+  // });
+  // setstate({
+  //   query: e.target.value,
+  //   list: results,
+  // });
+  // };
 
   const menuId = "primary-search-account-menu";
 
   const mobileMenuId = "primary-search-account-menu-mobile";
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, ...sectionSpacing }}>
       <AppBar position="static" sx={{ boxShadow: "none" }}>
         <Toolbar>
           <Stack alignItems="center">
