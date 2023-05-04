@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { Container } from "@mui/material";
+import { Box } from "@mui/material";
 
 import MediaCard from "../common/MediaCard";
 import CustomizedButton from "../common/CustomButton";
@@ -18,12 +18,14 @@ function a11yProps(index) {
   };
 }
 
-export default function LatestNewsByCategories({ newsCategories }) {
+export default function LatestNewsByCategories({
+  newsCategories,
+  sectionSpacing,
+}) {
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const [latestNews, setLatestNews] = useState([]);
 
   const handleChange = (event, newValue) => {
-    console.log(newValue);
     setActiveTabIndex(newValue);
   };
 
@@ -43,7 +45,7 @@ export default function LatestNewsByCategories({ newsCategories }) {
   }, []);
 
   return (
-    <Container>
+    <Box sx={{ ...sectionSpacing }}>
       <SectionTitle icon="newspaper" title="Latest News By Categories" />
       <Tabs
         value={activeTabIndex}
@@ -104,6 +106,6 @@ export default function LatestNewsByCategories({ newsCategories }) {
           <CustomizedButton />
         </Grid>
       </Grid>
-    </Container>
+    </Box>
   );
 }
