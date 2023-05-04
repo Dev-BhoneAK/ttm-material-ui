@@ -4,9 +4,9 @@ import MediaCard from "../common/MediaCard";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { Container } from "@mui/material";
+import { Box } from "@mui/material";
 
-export default function MobileTV({ videos }) {
+export default function MobileTV({ videos, sectionSpacing }) {
   const settings = {
     className: "slider variable-width",
     slidesToShow: 1,
@@ -15,13 +15,13 @@ export default function MobileTV({ videos }) {
     variableWidth: true,
   };
   return (
-    <Container>
+    <Box sx={{ ...sectionSpacing }}>
       <SectionTitle icon="live_tv" title="Mobile TV" />
       <Slider {...settings}>
         {videos.map((video) => (
           <MediaCard type="video" margin="true" key={video.id} data={video} />
         ))}
       </Slider>
-    </Container>
+    </Box>
   );
 }
