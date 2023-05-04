@@ -2,7 +2,7 @@ import React from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MediaCard from "../common/MediaCard";
-import { Container } from "@mui/material";
+import { Box } from "@mui/material";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,7 +10,7 @@ import Slider from "react-slick";
 
 import SectionTitle from "../common/SectionTitle";
 
-export default function PopularNews({ popularNews }) {
+export default function PopularNews({ popularNews, sectionSpacing }) {
   const theme = useTheme();
   const upperTabletSize = useMediaQuery(theme.breakpoints.up("sm"));
   const settings = {
@@ -21,7 +21,7 @@ export default function PopularNews({ popularNews }) {
     variableWidth: true,
   };
   return (
-    <Container>
+    <Box sx={{ ...sectionSpacing }}>
       <SectionTitle icon="trending_up" title="Popular News" />
       <Slider {...settings}>
         {popularNews.map((popularNew) => (
@@ -34,6 +34,6 @@ export default function PopularNews({ popularNews }) {
           />
         ))}
       </Slider>
-    </Container>
+    </Box>
   );
 }
