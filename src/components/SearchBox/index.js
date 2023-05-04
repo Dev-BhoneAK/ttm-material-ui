@@ -5,11 +5,11 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import Divider from "@mui/material/Divider";
 import TuneIcon from "@mui/icons-material/Tune";
-import { Container, Box } from "@mui/material";
+import { Box } from "@mui/material";
 
-export default function SearchBox() {
+export default function SearchBox({ sectionSpacing }) {
   return (
-    <Container>
+    <Box sx={{ ...sectionSpacing }}>
       <Paper
         component="form"
         sx={{
@@ -34,6 +34,6 @@ export default function SearchBox() {
           <TuneIcon />
         </IconButton>
       </Paper>
-    </Container>
+    </Box>
   );
 }
