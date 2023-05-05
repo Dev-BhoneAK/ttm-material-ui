@@ -13,8 +13,7 @@ export default function SectionTitle(props) {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        marginTop: "15px",
-        marginBottom: "15px",
+        marginBottom: { xs: 1, sm: 1.5 },
       }}
     >
       <Box
@@ -25,12 +24,13 @@ export default function SectionTitle(props) {
           color: grey[800],
         }}
       >
-        <CustomIcon
-          icon={props.icon}
-        />
+        <CustomIcon icon={props.icon} />
         <CustomTypo title={props.title} variant="h6" styles={{ ml: "5px" }} />
       </Box>
-      <Link to="/" style={{ textDecoration: "none", color: "inherit", display: "none"}}>
+      <Link
+        to="/"
+        style={{ textDecoration: "none", color: "inherit", display: "none" }}
+      >
         <CustomTypo title="Show All" variant="body2" />
       </Link>
     </Box>
