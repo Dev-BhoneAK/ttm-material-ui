@@ -53,6 +53,7 @@ export default function LatestNewsByCategories({
         variant="scrollable"
         scrollButtons="auto"
         aria-label="icon label tabs example"
+        sx={{ mb: { xs: 1, sm: 1.5 } }}
       >
         {newsCategories.map((newsCategory, index) => (
           <Tab
