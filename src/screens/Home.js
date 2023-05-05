@@ -21,6 +21,11 @@ import Typography from "@mui/material/Typography";
 
 export default function Home() {
   const theme = useTheme();
+
+  const sectionSpacing = {
+    mb: { xs: 2, sm: 3 },
+  };
+
   const [homeData, setHomeData] = useState({
     popularNews: [],
     newsCategories: [],
@@ -43,35 +48,31 @@ export default function Home() {
   }, []);
   return (
     <>
-      <MainAppBar />
-      <Container>
-        <SearchBox />
-        <PopularCategories />
-      </Container>
-      <Container
+      <MainAppBar sectionSpacing={sectionSpacing} />
+      <Box sx={{ p: "0.5rem 1.5rem" }}>
+        <SearchBox sectionSpacing={sectionSpacing} />
+        <PopularCategories sectionSpacing={sectionSpacing} />
+      </Box>
+      <Box
         sx={{
           background: theme.palette.mode === "dark" ? "inherit" : "#e1e1e1",
-          p: "1px 16px 20px 16px",
+          p: "0.5rem 1.5rem",
+          ...sectionSpacing,
         }}
       >
-        <PopularNews popularNews={homeData.popularNews} />
-        {/*<NewsCategories newsCategories={homeData.newsCategories} />*/}
-        <LatestNewsByCategories newsCategories={homeData.newsCategories} />
+        <PopularNews
+          popularNews={homeData.popularNews}
+          sectionSpacing={sectionSpacing}
+        />
+        <LatestNewsByCategories
+          newsCategories={homeData.newsCategories}
+          sectionSpacing={sectionSpacing}
+        />
         <Novels novels={homeData.novels} />
-      </Container>
-      {/* <Container sx={{ p: "4px 16px 20px 16px" }}>
-        <Articles />
-      </Container> */}
-      {/* <Container
-        sx={{
-          background: theme.palette.mode === "dark" ? "inherit" : "#e1e1e1",
-          p: "1px 16px 20px 16px",
-        }}
-      >
-      </Container> */}
-      <Container sx={{ p: "0 16px 20px 16px", mb: 7 }}>
-        <MobileTV videos={homeData.videos} />
-      </Container>
+      </Box>
+      {/* <Container sx={{ p: "0 16px 20px 16px", mb: 7 }}> */}
+      <MobileTV videos={homeData.videos} sectionSpacing={sectionSpacing} />
+      {/* </Container> */}
       <BottomNavigationBar />
     </>
   );
