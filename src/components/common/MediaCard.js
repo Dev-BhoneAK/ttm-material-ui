@@ -56,19 +56,19 @@ const VerticalMediaCard = ({ data }) => {
   const upperTabletSize = useMediaQuery(theme.breakpoints.up("sm"));
   return (
     <Card>
-        <CustomLink to={`/news/${data?.id}`}>
-      <CardMedia
-        component="img"
-        height={upperTabletSize ? "240px" : "200px"}
-        image={`http://localhost:8000/assets${data?.image}`}
-        alt={data?.title}
-      />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          {data?.title}
-        </Typography>
-      </CardContent>
-        </CustomLink>
+      <CustomLink to={`/news/${data?.id}`}>
+        <CardMedia
+          component="img"
+          height={upperTabletSize ? "240px" : "200px"}
+          image={`http://localhost:8000/assets${data?.image}`}
+          alt={data?.title}
+        />
+        <CardContent>
+          <Typography variant="body2" color="text.secondary">
+            {data?.title}
+          </Typography>
+        </CardContent>
+      </CustomLink>
     </Card>
   );
 };
@@ -123,6 +123,7 @@ const ImageMediaCard = ({ data }) => {
           width: upperTabletSize ? "140px" : "120px",
           boxShadow: "0 3px 10px -2px black",
           borderRadius: "12px",
+          mb: { xs: 1, sm: 1.5 },
         }}
         image={`http://localhost:8000/assets${data?.image}`}
         alt={data?.title}
@@ -146,11 +147,7 @@ const ImageMediaCard = ({ data }) => {
 
 export default function MediaCard(props) {
   if (props.type === "horizontal") {
-    return (
-      <HorizontalMediaCard
-        {...props}
-      />
-    );
+    return <HorizontalMediaCard {...props} />;
   } else if (props.type === "vertical") {
     return <VerticalMediaCard data={props.data} />;
   } else if (props.type === "video") {
