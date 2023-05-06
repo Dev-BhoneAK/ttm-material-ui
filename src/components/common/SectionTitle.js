@@ -24,7 +24,7 @@ export default function SectionTitle(props) {
           color: grey[800],
         }}
       >
-        <CustomIcon icon={props.icon} />
+        {props.icon && <CustomIcon icon={props.icon} />}
         <CustomTypo title={props.title} variant="h6" styles={{ ml: "5px" }} />
       </Box>
       <Link
