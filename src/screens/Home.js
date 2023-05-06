@@ -5,11 +5,13 @@ import {
   responsiveFontSizes,
   useTheme,
 } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
 
 import { getHomeData } from "../utils/api";
 import MainAppBar from "../components/app-bar/MainAppBar";
 import SearchBox from "../components/SearchBox";
 import PopularCategories from "../components/home/PopularCategories";
+import BackgroundGrey from "../components/common/BackgroundGrey";
 import PopularNews from "../components/home/PopularNews";
 import NewsCategories from "../components/home/NewsCategories";
 import LatestNewsByCategories from "../components/home/LatestNewsByCategories";
@@ -17,7 +19,6 @@ import Articles from "../components/home/Articles";
 import Novels from "../components/home/Novels";
 import MobileTV from "../components/home/MobileTV";
 import BottomNavigationBar from "../components/app-bar/BottomNavigationBar";
-import Typography from "@mui/material/Typography";
 
 export default function Home() {
   const theme = useTheme();
@@ -53,23 +54,28 @@ export default function Home() {
         <SearchBox sectionSpacing={sectionSpacing} />
         <PopularCategories sectionSpacing={sectionSpacing} />
       </Box>
-      <Box
+      {/* <Box
         sx={{
           background: theme.palette.mode === "dark" ? "inherit" : "#e1e1e1",
           p: "0.5rem 1.5rem",
           ...sectionSpacing,
         }}
-      >
-        <PopularNews
-          popularNews={homeData.popularNews}
-          sectionSpacing={sectionSpacing}
-        />
-        <LatestNewsByCategories
-          newsCategories={homeData.newsCategories}
-          sectionSpacing={sectionSpacing}
-        />
-        <Novels novels={homeData.novels} />
-      </Box>
+      > */}
+      {/* <BackgroundGrey styles={sectionSpacing}> */}
+      <PopularNews
+        popularNews={homeData.popularNews}
+        sectionSpacing={sectionSpacing}
+      />
+
+      <LatestNewsByCategories
+        newsCategories={homeData.newsCategories}
+        sectionSpacing={sectionSpacing}
+      />
+      <Novels novels={homeData.novels} />
+      {/* </BackgroundGrey> */}
+      {/* <BackgroundGrey></BackgroundGrey> */}
+
+      {/* </Box> */}
       {/* <Container sx={{ p: "0 16px 20px 16px", mb: 7 }}> */}
       <MobileTV videos={homeData.videos} sectionSpacing={sectionSpacing} />
       {/* </Container> */}
