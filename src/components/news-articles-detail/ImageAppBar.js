@@ -10,9 +10,8 @@ export default function ImageAppBar(props) {
       <Container sx={{ position: "relative", px: { xs: 0 } }}>
         <DetailAppBar />
         <Image
-          src={`http://localhost:8000/assets${props?.image}`}
+          src={`${process.env.REACT_APP_API_DOMAIN}/assets${props?.image}`}
           width="100%"
-          // height="320px"
           showLoading
           duration={3000}
           easing="ease-in-out"
