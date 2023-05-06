@@ -27,7 +27,7 @@ const HorizontalMediaCard = ({ data, margin, width }) => {
           <CardMedia
             component="img"
             sx={{ width: 100, mr: "8px" }}
-            image={`http://localhost:8000/assets${data?.image}`}
+            image={`${process.env.REACT_APP_API_DOMAIN}/assets${data?.image}`}
             alt={data?.title}
           />
           <CardContent sx={{ padding: 0 }}>
@@ -60,7 +60,7 @@ const VerticalMediaCard = ({ data }) => {
         <CardMedia
           component="img"
           height={upperTabletSize ? "240px" : "200px"}
-          image={`http://localhost:8000/assets${data?.image}`}
+          image={`${process.env.REACT_APP_API_DOMAIN}/assets${data?.image}`}
           alt={data?.title}
         />
         <CardContent>
@@ -88,7 +88,7 @@ const VideoCard = ({ data }) => {
         <CardMedia
           component="img"
           height={upperTabletSize ? "146px" : "112px"}
-          image={`http://localhost:8000/assets${data?.screenImage}`}
+          image={`${process.env.REACT_APP_API_DOMAIN}/assets${data?.screenImage}`}
           alt={data?.title}
         />
         <PlayCircleOutlineIcon
@@ -125,7 +125,7 @@ const ImageMediaCard = ({ data }) => {
           borderRadius: "12px",
           mb: { xs: 1, sm: 1.5 },
         }}
-        image={`http://localhost:8000/assets${data?.image}`}
+        image={`${process.env.REACT_APP_API_DOMAIN}/assets${data?.image}`}
         alt={data?.title}
       />
       <Box
