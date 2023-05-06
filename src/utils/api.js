@@ -1,7 +1,7 @@
-const newsApi = "http://localhost:8000/news";
-const categoriesApi = "http://localhost:8000/categories";
-const novelsApi = "http://localhost:8000/novels";
-const videosApi = "http://localhost:8000/videos";
+const newsApi = `${process.env.REACT_APP_API_DOMAIN}/news`;
+const categoriesApi = `${process.env.REACT_APP_API_DOMAIN}/categories`;
+const novelsApi = `${process.env.REACT_APP_API_DOMAIN}/novels`;
+const videosApi = `${process.env.REACT_APP_API_DOMAIN}/videos`;
 
 export function getHomeData() {
   return Promise.all([
@@ -9,16 +9,14 @@ export function getHomeData() {
     getCategories("news"),
     getNovels(),
     getVideos(),
-  ]).then(
-    ([popularNews, newsCategories, novels, videos]) => {
-      return {
-        popularNews,
-        newsCategories,
-        novels,
-        videos,
-      };
-    }
-  );
+  ]).then(([popularNews, newsCategories, novels, videos]) => {
+    return {
+      popularNews,
+      newsCategories,
+      novels,
+      videos,
+    };
+  });
 }
 
 export function getPopularNews() {
