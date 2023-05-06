@@ -8,20 +8,32 @@ import CustomTypo from "../components/common/CustomTypo";
 import { getNewsDetail } from "../utils/api";
 import ImageAppBar from "../components/news-articles-detail/ImageAppBar";
 import ContentInfo from "../components/news-articles-detail/ContentInfo";
+import RelatedInfoSection from "../components/news-articles-detail/RelatedInfoSection";
+import { getLatestNewsByCategories } from "../utils/api";
 
 export default function NewsArticlesDetail() {
   const theme = useTheme();
   let { news_id } = useParams();
   const [newsDetailData, setNewsDetailData] = useState(undefined);
+  const [relatedNewsData, setRelatedNewsData] = useState(undefined);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       const newsDetail = await getNewsDetail(news_id);
-      
+
       setNewsDetailData(newsDetail);
     }
     fetchData();
   }, []);
+
+  useEffect(() => {
+    getLatestNewsByCategories(1).then((data) => {
+      setLoading(false);
+      setRelatedNewsData(data);
+    });
+  }, []);
+
   return (
     <>
       <ImageAppBar image={newsDetailData?.image} />
@@ -38,6 +50,11 @@ export default function NewsArticlesDetail() {
       <Container sx={{ px: { xs: 2 }, py: { xs: 2 } }}>
         <CustomTypo variant="body2" title={newsDetailData?.content} />
       </Container>
+      {loading ? (
+        <Typography variant="h6">Loading...</Typography>
+      ) : (
+        <RelatedInfoSection relatedNewsData={relatedNewsData} title="News" />
+      )}
     </>
   );
 }
