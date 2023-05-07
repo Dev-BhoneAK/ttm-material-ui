@@ -4,7 +4,7 @@
   "homepage": "https://dev-bhoneak.github.io/ttm-material-ui",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
+    "start": "json-server --watch public/db.json --port 8000 & react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
@@ -16,6 +16,7 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "latest",
+    "json-server": "^0.17.3",
     "mui-image": "^1.0.7",
     "react": "latest",
     "react-dom": "latest",
