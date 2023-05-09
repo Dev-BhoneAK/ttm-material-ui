@@ -4,8 +4,10 @@ import { Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
+
 import Home from "./screens/Home";
 import NewsArticlesDetail from "./screens/NewsArticlesDetail";
+import QuestionAnswer from "./components/popular-categories/QuestionAnswer";
 import ColorModeContext from "./context/ColorModeContext";
 import { responsiveFontSizes } from "@mui/material/styles";
 
@@ -47,6 +49,7 @@ export default function App() {
             <Routes>
               <Route path="/" exact index element={<Home />} />
               <Route path="/news/:news_id" element={<NewsArticlesDetail />} />
+              <Route path="/question-answer" element={<QuestionAnswer />} />
             </Routes>
           </Container>
         </Suspense>
