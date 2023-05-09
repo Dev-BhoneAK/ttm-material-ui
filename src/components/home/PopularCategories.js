@@ -1,6 +1,8 @@
 import React from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import CustomLink from "../common/CustomLink";
+
 import SectionTitle from "../common/SectionTitle";
 import CategoryPaper from "../common/CategoryPaper";
 import Stack from "@mui/material/Stack";
@@ -18,7 +20,9 @@ export default function PopularCategories({ sectionSpacing }) {
         justifyContent="space-between"
         alignItems="center"
       >
-        <CategoryPaper icon="question_answer" title="Q&A" />
+        <CustomLink to="question-answer">
+          <CategoryPaper icon="question_answer" title="Q&A" />
+        </CustomLink>
         <CategoryPaper icon="thunderstorm" title="Weather" />
         <CategoryPaper icon="calendar_month" title="Events" />
         <CategoryPaper icon="article" title="Articles" />
