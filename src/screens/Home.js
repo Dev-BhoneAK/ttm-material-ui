@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 
 import { getHomeData } from "../utils/api";
 import MainAppBar from "../components/app-bar/MainAppBar";
-import SearchBox from "../components/SearchBox";
+import SearchBox from "../components/search-box";
 import PopularCategories from "../components/home/PopularCategories";
 import BackgroundGrey from "../components/common/BackgroundGrey";
 import PopularNews from "../components/home/PopularNews";
