@@ -10,6 +10,7 @@ import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import CustomLink from "./CustomLink";
+import ReactAnimatedWeather from "react-animated-weather";
 
 const HorizontalMediaCard = ({ data, margin, width }) => {
   const theme = useTheme();
@@ -23,7 +24,9 @@ const HorizontalMediaCard = ({ data, margin, width }) => {
       }}
     >
       <CustomLink to={`/news/${data?.id}`}>
-        <CardActionArea sx={{ display: "flex", alignItems: "center" }}>
+        <CardActionArea
+          sx={{ display: "flex", alignItems: "center", justifyContent: "left" }}
+        >
           <CardMedia
             component="img"
             sx={{ width: 100, mr: "8px" }}
@@ -155,4 +158,58 @@ export default function MediaCard(props) {
   } else {
     return <ImageMediaCard data={props.data} />;
   }
+}
+
+export function WeatherCard({ date, icon, temperature }) {
+  const theme = useTheme();
+  const defaults = {
+    color: "white",
+    size: 50,
+    animate: true,
+  };
+  return (
+    <Card
+      sx={{
+        width: "100%",
+        height: 100,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-evenly",
+        mb: { xs: 2, sm: 3 },
+        borderTop: "1px solid #e5e5e5",
+      }}
+    >
+      <Typography
+        sx={{
+          variant: "subtitle2",
+        }}
+      >
+        {date}
+      </Typography>
+      <Box
+        sx={{
+          background: "#1876d1",
+          width: 100,
+          height: 100,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <ReactAnimatedWeather
+          icon={icon}
+          color={defaults.color}
+          size={defaults.size}
+          animate={defaults.animate}
+        />
+      </Box>
+      <Typography
+        sx={{
+          variant: "subtitle2",
+        }}
+      >
+        26˚C - 35˚C
+      </Typography>
+    </Card>
+  );
 }
