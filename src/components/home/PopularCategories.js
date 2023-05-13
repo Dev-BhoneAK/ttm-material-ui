@@ -23,7 +23,9 @@ export default function PopularCategories({ sectionSpacing }) {
         <CustomLink to="question-answer">
           <CategoryPaper icon="question_answer" title="Q&A" />
         </CustomLink>
-        <CategoryPaper icon="thunderstorm" title="Weather" />
+        <CustomLink to="weather">
+          <CategoryPaper icon="thunderstorm" title="Weather" />
+        </CustomLink>
         <CategoryPaper icon="calendar_month" title="Events" />
         <CategoryPaper icon="article" title="Articles" />
         <CategoryPaper icon="currency_exchange" title="Currency" />
