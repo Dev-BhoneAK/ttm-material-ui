@@ -7,7 +7,8 @@ import Container from "@mui/material/Container";
 
 import Home from "./screens/Home";
 import NewsArticlesDetail from "./screens/NewsArticlesDetail";
-import QuestionAnswer from "./components/popular-categories/QuestionAnswer";
+import QuestionAnswer from "./screens/QuestionAnswer";
+import Weather from "./screens/Weather";
 import ColorModeContext from "./context/ColorModeContext";
 import { responsiveFontSizes } from "@mui/material/styles";
 
@@ -50,6 +51,7 @@ export default function App() {
               <Route path="/" exact index element={<Home />} />
               <Route path="/news/:news_id" element={<NewsArticlesDetail />} />
               <Route path="/question-answer" element={<QuestionAnswer />} />
+              <Route path="/weather" element={<Weather />} />
             </Routes>
           </Container>
         </Suspense>
