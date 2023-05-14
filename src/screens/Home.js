@@ -15,7 +15,6 @@ import BackgroundGrey from "../components/common/BackgroundGrey";
 import PopularNews from "../components/home/PopularNews";
 import NewsCategories from "../components/home/NewsCategories";
 import LatestNewsByCategories from "../components/home/LatestNewsByCategories";
-import Articles from "../components/home/Articles";
 import Novels from "../components/home/Novels";
 import MobileTV from "../components/home/MobileTV";
 import BottomNavigationBar from "../components/app-bar/BottomNavigationBar";
