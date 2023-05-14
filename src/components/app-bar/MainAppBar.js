@@ -7,13 +7,14 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
-import AccountCircle from "@mui/icons-material/AccountCircle";
+import CloudIcon from "@mui/icons-material/Cloud";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import { useTheme, createTheme } from "@mui/material/styles";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
+
+import { useTheme, createTheme } from "@mui/material/styles";
 import ColorModeContext from "../../context/ColorModeContext";
-import CloudIcon from "@mui/icons-material/Cloud";
+import HeadingTitle from "../common/HeadingTitle";
 
 export default function MainAppBar({ sectionSpacing }) {
   const theme = useTheme();
@@ -71,7 +72,7 @@ export default function MainAppBar({ sectionSpacing }) {
 
   return (
     <Box sx={{ flexGrow: 1, ...sectionSpacing }}>
-      <AppBar position="static" sx={{ boxShadow: "none" }}>
+    <AppBar position="static" sx={{ boxShadow: "none" }}>
         <Toolbar>
           <Stack alignItems="center">
             <CloudIcon sx={{ fontSize: "28px" }} />
@@ -79,20 +80,7 @@ export default function MainAppBar({ sectionSpacing }) {
               26˚C - 35˚C
             </Typography>
           </Stack>
-          <Box sx={{ flexGrow: 1 }}>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{
-                display: "block",
-                overflow: "visible",
-                textAlign: "center",
-              }}
-            >
-              BAK
-            </Typography>
-          </Box>
+          <HeadingTitle title="BAK" />
           <Box sx={{ display: "flex" }}>
             <IconButton
               sx={{ p: 1 }}
