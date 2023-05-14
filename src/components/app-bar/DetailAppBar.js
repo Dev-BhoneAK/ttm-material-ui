@@ -27,14 +27,8 @@ export default function DetailAppBar(props) {
       <CssBaseline />
       <HideOnScroll {...props}>
         <AppBar
-          position="fixed"
           sx={{
-            left: "0",
-            top: "0",
-            backgroundColor: "rgba(0,0,0,0.3)",
-            maxWidth: "md",
-            px: { xs: 0 },
-            margin: "0 auto",
+            ...props.styles,
           }}
         >
           <Toolbar>
@@ -49,6 +43,7 @@ export default function DetailAppBar(props) {
                 <ArrowBackIcon />
               </IconButton>
             </Link>
+            {props.headingTitle}
           </Toolbar>
         </AppBar>
       </HideOnScroll>
