@@ -15,7 +15,6 @@ export default function CategoryPaper(props) {
     >
       <Paper
         elevation={3}
-        onClick={() => props.setActiveSlide(props.index)}
         sx={{
           width: { xs: 50, md: 80 },
           height: { xs: 50, md: 80 },
@@ -34,7 +33,7 @@ export default function CategoryPaper(props) {
       {/*>*/}
       {/*  {props.title}*/}
       {/*</Typography>*/}
-        <CustomTypo title={props.title} variant="body1"/>
+      <CustomTypo title={props.title} variant="body1" />
     </Stack>
   );
 }
