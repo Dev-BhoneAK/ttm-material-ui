@@ -39,7 +39,6 @@ export default function LatestNewsByCategories({
 
   useEffect(() => {
     getLatestNewsByCategories(1).then((data) => {
-      console.log(data);
       setLatestNews(data);
     });
   }, []);
@@ -58,6 +57,7 @@ export default function LatestNewsByCategories({
         {newsCategories.map((newsCategory, index) => (
           <Tab
             label={newsCategory.name}
+            key={newsCategory?.id}
             {...a11yProps(index)}
             icon={
               <CustomIcon
@@ -75,22 +75,18 @@ export default function LatestNewsByCategories({
               item
               xs={12}
               sm={6}
+              key={data?.id}
               sx={{
                 display: index === 1 ? { xs: "none", sm: "block" } : undefined,
               }}
             >
-              <CustomLink to={`/news/${data?.id}`}>
-                <MediaCard type="vertical" key={data?.id} data={data} />
-              </CustomLink>
+              {/* <CustomLink to={`/news/${data?.id}`}> */}
+              <MediaCard type="vertical" data={data} />
+              {/* </CustomLink> */}
             </Grid>
           ) : (
-            <Grid item xs={12} sm={6}>
-              <MediaCard
-                type="horizontal"
-                margin="false"
-                key={data?.id}
-                data={data}
-              />
+            <Grid item xs={12} sm={6} key={data?.id}>
+              <MediaCard type="horizontal" margin="false" data={data} />
             </Grid>
           )
         )}
