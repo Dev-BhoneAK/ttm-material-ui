@@ -160,7 +160,7 @@ export default function MediaCard(props) {
   }
 }
 
-export function WeatherCard({ date, icon, temperature }) {
+export const WeatherCard = React.forwardRef(function (props, ref) {
   const theme = useTheme();
   const defaults = {
     color: "white",
@@ -178,13 +178,15 @@ export function WeatherCard({ date, icon, temperature }) {
         mb: { xs: 2, sm: 3 },
         borderTop: "1px solid #e5e5e5",
       }}
+      ref={ref}
+      {...props}
     >
       <Typography
         sx={{
           variant: "subtitle2",
         }}
       >
-        {date}
+        {props.date}
       </Typography>
       <Box
         sx={{
@@ -197,7 +199,7 @@ export function WeatherCard({ date, icon, temperature }) {
         }}
       >
         <ReactAnimatedWeather
-          icon={icon}
+          icon={props.icon}
           color={defaults.color}
           size={defaults.size}
           animate={defaults.animate}
@@ -212,4 +214,58 @@ export function WeatherCard({ date, icon, temperature }) {
       </Typography>
     </Card>
   );
-}
+});
+
+// export const WeatherCard = ({ date, icon, temperature }) => {
+//   const theme = useTheme();
+//   const defaults = {
+//     color: "white",
+//     size: 50,
+//     animate: true,
+//   };
+//   return (
+//     <Card
+//       sx={{
+//         width: "100%",
+//         height: 100,
+//         display: "flex",
+//         alignItems: "center",
+//         justifyContent: "space-evenly",
+//         mb: { xs: 2, sm: 3 },
+//         borderTop: "1px solid #e5e5e5",
+//       }}
+//     >
+//       <Typography
+//         sx={{
+//           variant: "subtitle2",
+//         }}
+//       >
+//         {date}
+//       </Typography>
+//       <Box
+//         sx={{
+//           background: "#1876d1",
+//           width: 100,
+//           height: 100,
+//           display: "flex",
+//           alignItems: "center",
+//           justifyContent: "center",
+//         }}
+//       >
+//         <ReactAnimatedWeather
+//           icon={icon}
+//           color={defaults.color}
+//           size={defaults.size}
+//           animate={defaults.animate}
+//         />
+//       </Box>
+//       <Typography
+//         sx={{
+//           variant: "subtitle2",
+//         }}
+//       >
+//         26˚C - 35˚C
+//       </Typography>
+//     </Card>
+//   );
+// };
