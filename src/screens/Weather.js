@@ -15,7 +15,7 @@ export default function Weather() {
   return (
     <>
       <DetailAppBar
-        headingTitle={<HeadingTitle title="Weather" />}
+        headingTitle={<HeadingTitle title="Weekly Weather Forecast" />}
         styles={styles}
       />
       <Box sx={{ px: 3, pb: 3 }}>
