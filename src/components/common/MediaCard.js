@@ -193,17 +193,36 @@ export const WeatherCard = React.forwardRef(function (props, ref) {
           background: "#1876d1",
           width: 100,
           height: 100,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
         }}
       >
-        <ReactAnimatedWeather
-          icon={props.icon}
-          color={defaults.color}
-          size={defaults.size}
-          animate={defaults.animate}
-        />
+        <Stack
+          direction="column"
+          justifyContent="flex-start"
+          alignItems="center"
+          spacing={2}
+        >
+          <Box
+            sx={{
+              background: "#FFFFFF",
+              px: { xs: 2, sm: 3 },
+              py: { xs: 0.5, sm: 1 },
+            }}
+          >
+            <Typography
+              sx={{
+                variant: "subtitle2",
+              }}
+            >
+              TODAY
+            </Typography>
+          </Box>
+          <ReactAnimatedWeather
+            icon={props.icon}
+            color={defaults.color}
+            size={defaults.size}
+            animate={defaults.animate}
+          />
+        </Stack>
       </Box>
       <Typography
         sx={{
