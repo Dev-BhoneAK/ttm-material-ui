@@ -1,6 +1,8 @@
 import * as React from "react";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+
+import useDarkLightTheme from "../../hooks/useDarkLightTheme";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
@@ -161,7 +163,7 @@ export default function MediaCard(props) {
 }
 
 export const WeatherCard = React.forwardRef(function (props, ref) {
-  const theme = useTheme();
+  const { blueBox, whiteBox, textColor } = useDarkLightTheme();
   const defaults = {
     color: "white",
     size: 50,
@@ -190,7 +192,7 @@ export const WeatherCard = React.forwardRef(function (props, ref) {
       </Typography>
       <Box
         sx={{
-          background: "#1876d1",
+          background: blueBox, //"#1E88E5",
           width: 100,
           height: 100,
         }}
@@ -203,17 +205,17 @@ export const WeatherCard = React.forwardRef(function (props, ref) {
         >
           <Box
             sx={{
-              background: "#FFFFFF",
-              px: { xs: 2, sm: 3 },
-              py: { xs: 0.5, sm: 1 },
+              background: whiteBox,
+              width: 50,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              // px: { xs: 2, sm: 3 },
+              // py: { xs: 0.5, sm: 1 },
             }}
           >
-            <Typography
-              sx={{
-                variant: "subtitle2",
-              }}
-            >
-              TODAY
+            <Typography variant="subtitle2" sx={{ color: textColor }}>
+              {props.day}
             </Typography>
           </Box>
           <ReactAnimatedWeather
