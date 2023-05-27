@@ -2,7 +2,7 @@ import React from "react";
 import DetailAppBar from "../components/app-bar/DetailAppBar";
 import HeadingTitle from "../components/common/HeadingTitle";
 import CustomAccordion from "../components/common/CustomAccordion";
-import useGreyBackground from "../hooks/useGreyBackground";
+import useGreyBackground from "../hooks/useDarkLightTheme";
 
 export default function QuestionAnswer() {
   const styles = {
