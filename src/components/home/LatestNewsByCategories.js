@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
-import Tabs from "@mui/material/Tabs";
+import Tabs, { tabsClasses } from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Box } from "@mui/material";
 
-import MediaCard from "../common/MediaCard";
+import HorizontalMediaCard from "../common/meida-cards/HorizontalMediaCard";
+import VerticalMediaCard from "../common/meida-cards/VerticalMediaCard";
 import CustomizedButton from "../common/CustomButton";
 import SectionTitle from "../common/SectionTitle";
-import CustomLink from "../common/CustomLink";
 import CustomIcon from "../common/CustomIcon";
 import { getLatestNewsByCategories } from "../../utils/api";
 
@@ -50,9 +50,14 @@ export default function LatestNewsByCategories({
         value={activeTabIndex}
         onChange={handleChange}
         variant="scrollable"
-        scrollButtons="auto"
-        aria-label="icon label tabs example"
-        sx={{ mb: { xs: 1, sm: 1.5 } }}
+        scrollButtons
+        aria-label="visible arrows tabs example"
+        sx={{
+          [`& .${tabsClasses.scrollButtons}`]: {
+            "&.Mui-disabled": { opacity: 0.3 },
+          },
+          mb: { xs: 1, sm: 1.5 },
+        }}
       >
         {newsCategories.map((newsCategory, index) => (
           <Tab
@@ -80,13 +85,11 @@ export default function LatestNewsByCategories({
                 display: index === 1 ? { xs: "none", sm: "block" } : undefined,
               }}
             >
-              {/* <CustomLink to={`/news/${data?.id}`}> */}
-              <MediaCard type="vertical" data={data} />
-              {/* </CustomLink> */}
+              <VerticalMediaCard data={data} />
             </Grid>
           ) : (
             <Grid item xs={12} sm={6} key={data?.id}>
-              <MediaCard type="horizontal" margin="false" data={data} />
+              <HorizontalMediaCard margin="false" data={data} />
             </Grid>
           )
         )}
