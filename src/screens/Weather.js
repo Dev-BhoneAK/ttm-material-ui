@@ -5,7 +5,7 @@ import Zoom from "@mui/material/Zoom";
 
 import DetailAppBar from "../components/app-bar/DetailAppBar";
 import HeadingTitle from "../components/common/HeadingTitle";
-import { WeatherCard } from "../components/common/MediaCard";
+import WeatherMediaCard from "../components/common/meida-cards/WeatherMediaCard";
 
 export default function Weather() {
   const styles = {
@@ -29,31 +29,61 @@ export default function Weather() {
         </Zoom> */}
 
         <Zoom in timeout={2000}>
-          <WeatherCard date="22-02-2022" icon="PARTLY_CLOUDY_DAY" day="TODAY" />
+          <WeatherMediaCard
+            forecast="Partly Cloudy Day"
+            icon="PARTLY_CLOUDY_DAY"
+            day="TODAY"
+          />
         </Zoom>
         <Zoom in timeout={2000} style={{ transitionDelay: "500ms" }}>
-          <WeatherCard date="21-02-2022" icon="CLOUDY" day="MON" />
+          <WeatherMediaCard forecast="Partly Cloudy" icon="CLOUDY" day="MON" />
         </Zoom>
         <Zoom in timeout={2000} style={{ transitionDelay: "1000ms" }}>
-          <WeatherCard date="21-02-2022" icon="CLOUDY" day="TUE" />
+          <WeatherMediaCard forecast="Cloudy" icon="CLOUDY" day="TUE" />
         </Zoom>
         <Zoom in timeout={2000} style={{ transitionDelay: "1500ms" }}>
-          <WeatherCard date="23-02-2022" icon="SLEET" day="WED" />
+          <WeatherMediaCard forecast="Snow Rain" icon="SLEET" day="WED" />
         </Zoom>
         <Zoom in timeout={2000} style={{ transitionDelay: "2000ms" }}>
-          <WeatherCard date="24-02-2022" icon="CLEAR_DAY" day="THURS" />
+          <WeatherMediaCard forecast="Clear" icon="CLEAR_DAY" day="THURS" />
         </Zoom>
         <Zoom in timeout={2000} style={{ transitionDelay: "2500ms" }}>
-          <WeatherCard date="24-02-2022" icon="CLEAR_DAY" day="FRI" />
+          <WeatherMediaCard forecast="Sunny" icon="CLEAR_DAY" day="FRI" />
         </Zoom>
         <Zoom in timeout={2000} style={{ transitionDelay: "3000ms" }}>
-          <WeatherCard date="24-02-2022" icon="CLEAR_DAY" day="SAT" />
+          <WeatherMediaCard forecast="Clear" icon="CLEAR_DAY" day="SAT" />
         </Zoom>
 
-        {/* <Grow in timeout={1000}>
-          <WeatherCard date="22-02-2022" icon="PARTLY_CLOUDY_DAY" day="TODAY" />
+        {/* <Zoom in timeout={2000}>
+          <WeatherMediaCard
+            forecast="Partly Cloudy Day"
+            icon="PARTLY_CLOUDY_DAY"
+            day="TODAY"
+          />
+        </Zoom>
+        <Zoom in timeout={2000} style={{ transitionDelay: "500ms" }}>
+          <WeatherMediaCard forecast="Partly Cloudy" icon="CLOUDY" day="MON" />
+        </Zoom>
+        <Zoom in timeout={2000} style={{ transitionDelay: "1000ms" }}>
+          <WeatherMediaCard forecast="Cloudy" icon="CLOUDY" day="TUE" />
+        </Zoom>
+        <Zoom in timeout={2000} style={{ transitionDelay: "1500ms" }}>
+          <WeatherMediaCard forecast="Snow Rain" icon="SLEET" day="WED" />
+        </Zoom>
+        <Zoom in timeout={2000} style={{ transitionDelay: "2000ms" }}>
+          <WeatherMediaCard forecast="Clear" icon="CLEAR_DAY" day="THURS" />
+        </Zoom>
+        <Zoom in timeout={2000} style={{ transitionDelay: "2500ms" }}>
+          <WeatherMediaCard forecast="Sunny" icon="CLEAR_DAY" day="FRI" />
+        </Zoom>
+        <Zoom in timeout={2000} style={{ transitionDelay: "3000ms" }}>
+          <WeatherMediaCard forecast="Clear" icon="CLEAR_DAY" day="SAT" />
+        </Zoom> */}
+
+        <Grow in timeout={2000} style={{ transitionDelay: "1000ms" }}>
+          <WeatherMediaCard forecast="Partly Cloudy" icon="CLOUDY" day="MON" />
         </Grow>
-        <Grow in timeout={1000} style={{ transitionDelay: "500ms" }}>
+        {/* <Grow in timeout={1000} style={{ transitionDelay: "500ms" }}>
           <WeatherCard date="21-02-2022" icon="CLOUDY" day="MON" />
         </Grow>
         <Grow in timeout={2000} style={{ transitionDelay: "1000ms" }}>
