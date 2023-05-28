@@ -3,8 +3,7 @@ import Stack from "@mui/material/Stack";
 
 import SectionTitle from "../common/SectionTitle";
 import BackgroundGrey from "../common/BackgroundGrey";
-import MediaCard from "../common/MediaCard";
-import useUpperTabletSize from "../../hooks/useUpperTabletSize";
+import HorizontalMediaCard from "../common/meida-cards/HorizontalMediaCard";
 
 export default function RelatedInfoSection({ title, relatedNewsData }) {
   return (
@@ -12,13 +11,11 @@ export default function RelatedInfoSection({ title, relatedNewsData }) {
       <SectionTitle title={`Related ${title}`} />
       <Stack spacing={2}>
         {relatedNewsData.map((relatedNews) => (
-          <MediaCard
-            type="horizontal"
+          <HorizontalMediaCard
             margin="true"
             key={relatedNews.id}
             data={relatedNews}
             width="100%"
-            // width={upperTabletSize ? "380px" : "280px"}
           />
         ))}
       </Stack>
