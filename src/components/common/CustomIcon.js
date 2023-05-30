@@ -15,7 +15,6 @@ import { grey } from "@mui/material/colors";
 // };
 
 export default function CustomIcon(props) {
-  const theme = useTheme();
   return (
     <Icon
       sx={{
