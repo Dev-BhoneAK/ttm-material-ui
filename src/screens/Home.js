@@ -60,24 +60,24 @@ export default function Home() {
           ...sectionSpacing,
         }}
       > */}
-      {/* <BackgroundGrey styles={sectionSpacing}> */}
-      <PopularNews
-        popularNews={homeData.popularNews}
-        sectionSpacing={sectionSpacing}
-      />
+      <BackgroundGrey styles={sectionSpacing}>
+        <PopularNews
+          popularNews={homeData.popularNews}
+          sectionSpacing={sectionSpacing}
+        />
 
-      <LatestNewsByCategories
-        newsCategories={homeData.newsCategories}
-        sectionSpacing={sectionSpacing}
-      />
-      <Novels novels={homeData.novels} />
-      {/* </BackgroundGrey> */}
+        <LatestNewsByCategories
+          newsCategories={homeData.newsCategories}
+          sectionSpacing={sectionSpacing}
+        />
+        <Novels novels={homeData.novels} />
+      </BackgroundGrey>
       {/* <BackgroundGrey></BackgroundGrey> */}
 
       {/* </Box> */}
-      {/* <Container sx={{ p: "0 16px 20px 16px", mb: 7 }}> */}
-      <MobileTV videos={homeData.videos} sectionSpacing={sectionSpacing} />
-      {/* </Container> */}
+      <Box sx={{ p: "0 1.5rem", mb: 7 }}>
+        <MobileTV videos={homeData.videos} sectionSpacing={sectionSpacing} />
+      </Box>
       <BottomNavigationBar />
     </>
   );
