@@ -1,11 +1,10 @@
 import React from "react";
 import { Box } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import useGreyBackground from "../../hooks/useDarkLightTheme";
+import useDarkLightTheme from "../../hooks/useDarkLightTheme";
 
 export default function BackgroundGrey(props) {
-  const theme = useTheme();
-  const greyBackground = useGreyBackground();
+  const { greyBackground } = useDarkLightTheme();
   return (
     <Box
       sx={{
