@@ -22,7 +22,6 @@ export default function QuestionAnswer() {
         title="Accordion 1"
         detail="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
             malesuada lacus ex, sit amet blandit leo lobortis eget."
-        // styles={{ background: greyBackground, mb: { xs: 2, sm: 3 } }}
       />
       <CustomAccordion
         title="Accordion 2"
