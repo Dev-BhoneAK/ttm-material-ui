@@ -99,11 +99,6 @@ const WeatherMediaCard = React.forwardRef(function (props, ref) {
             alignItems: "center",
           }}
         >
-          {/* <Stack
-            justifyContent="space-between"
-            alignItems="center"
-            direction="row"
-          > */}
           <Grid container>
             <Grid item xs={6}>
               <Stack
@@ -128,6 +123,7 @@ const WeatherMediaCard = React.forwardRef(function (props, ref) {
                 justifyContent="center"
                 alignItems="center"
                 direction="row"
+                spacing={1}
               >
                 <CustomIcon icon="air" />
                 <Stack
@@ -135,9 +131,10 @@ const WeatherMediaCard = React.forwardRef(function (props, ref) {
                   alignItems="flex-start"
                   justifyContent="center"
                 >
-                  <Typography variant="subtitle2" sx={{ color: textColor }}>
+                  <Typography variant="body1" sx={{ color: textColor }}>
                     3Km/h
                   </Typography>
+                  <Typography variant="body2">Wind</Typography>
                 </Stack>
               </Stack>
             </Grid>
