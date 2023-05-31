@@ -29,7 +29,11 @@ export default function SectionTitle(props) {
       </Box>
       <Link
         to="/"
-        style={{ textDecoration: "none", color: "inherit", display: "none" }}
+        style={{
+          textDecoration: "none",
+          color: "inherit",
+          display: props.showAll ? "block" : "none",
+        }}
       >
         <CustomTypo title="Show All" variant="body2" />
       </Link>
