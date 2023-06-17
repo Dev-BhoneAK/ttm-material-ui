@@ -1,8 +1,6 @@
 import * as React from "react";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import Divider from "@mui/material/Divider";
@@ -59,35 +57,18 @@ export default function SearchBox({ sectionSpacing }) {
           boxShadow: "none",
         }}
       >
-        {/* <InputBase
+        <InputBase
           sx={{ ml: 1, flex: 1 }}
           placeholder="What are you looking for?"
           inputProps={{ "aria-label": "search box" }}
-        /> */}
-        <Autocomplete
-          freeSolo
-          id="free-solo-2-demo"
-          disableClearable
-          options={top100Films.map((option) => option.title)}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Search input"
-              InputProps={{
-                ...params.InputProps,
-                type: "search",
-              }}
-              border="none"
-            />
-          )}
         />
+        <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
         <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
           <SearchIcon />
         </IconButton>
-        <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-        <IconButton type="button" sx={{ p: "10px" }} aria-label="filter">
+        {/* <IconButton type="button" sx={{ p: "10px" }} aria-label="filter">
           <TuneIcon />
-        </IconButton>
+        </IconButton> */}
       </Paper>
     </Box>
   );
