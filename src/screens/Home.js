@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Container, Box } from "@mui/material";
-import {
-  createTheme,
-  responsiveFontSizes,
-  useTheme,
-} from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
+import { Box } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 import { getHomeData } from "../utils/api";
 import MainAppBar from "../components/app-bar/MainAppBar";
@@ -13,7 +8,6 @@ import SearchBox from "../components/search-box";
 import PopularCategories from "../components/home/PopularCategories";
 import BackgroundGrey from "../components/common/BackgroundGrey";
 import PopularNews from "../components/home/PopularNews";
-import NewsCategories from "../components/home/NewsCategories";
 import LatestNewsByCategories from "../components/home/LatestNewsByCategories";
 import Novels from "../components/home/Novels";
 import MobileTV from "../components/home/MobileTV";
