@@ -6,6 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 
 import Home from "./screens/Home";
+import NewsList from "./screens/NewsList";
 import NewsArticlesDetail from "./screens/NewsArticlesDetail";
 import QuestionAnswer from "./screens/QuestionAnswer";
 import Weather from "./screens/Weather";
@@ -49,6 +50,7 @@ export default function App() {
           <Container maxWidth="md" sx={{ px: { xs: 0 } }}>
             <Routes>
               <Route path="/" exact index element={<Home />} />
+              <Route path="/news" element={<NewsList />} />
               <Route path="/news/:news_id" element={<NewsArticlesDetail />} />
               <Route path="/question-answer" element={<QuestionAnswer />} />
               <Route path="/weather" element={<Weather />} />
