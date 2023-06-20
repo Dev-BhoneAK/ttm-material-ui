@@ -4,13 +4,15 @@ import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import HomeIcon from "@mui/icons-material/Home";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ArticleIcon from "@mui/icons-material/Article";
 import FeedIcon from "@mui/icons-material/Feed";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
 
+import { Link, useLocation } from "react-router-dom";
+
 export default function BottomNavigationBar() {
   const [value, setValue] = React.useState(0);
+  const location = useLocation();
 
   return (
     <Paper
@@ -19,13 +21,23 @@ export default function BottomNavigationBar() {
     >
       <BottomNavigation
         showLabels
-        value={value}
+        value={location.pathname}
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
       >
-        <BottomNavigationAction label="Home" icon={<HomeIcon />} />
-        <BottomNavigationAction label="News" icon={<FeedIcon />} />
+        <BottomNavigationAction
+          label="Home"
+          icon={<HomeIcon />}
+          component={Link}
+          to="/"
+        />
+        <BottomNavigationAction
+          label="News"
+          icon={<FeedIcon />}
+          component={Link}
+          to="/news"
+        />
         <BottomNavigationAction label="Novels" icon={<MenuBookIcon />} />
         <BottomNavigationAction label="Mobile TV" icon={<LiveTvIcon />} />
         <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
