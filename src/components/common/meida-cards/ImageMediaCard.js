@@ -7,23 +7,29 @@ import Typography from "@mui/material/Typography";
 import useUpperTabletSize from "../../../hooks/useUpperTabletSize";
 import CustomLink from "../CustomLink";
 
-export default function ImageMediaCard({ data }) {
+export const ImageOnlyMediaCard = ({ data }) => {
   const upperTabletSize = useUpperTabletSize();
+  return (
+    <CardMedia
+      component="img"
+      height={upperTabletSize ? "220px" : "180px"}
+      sx={{
+        width: upperTabletSize ? "140px" : "120px",
+        boxShadow: "0 3px 10px -2px black",
+        borderRadius: "12px",
+        mb: { xs: 1, sm: 1.5 },
+      }}
+      image={`${process.env.REACT_APP_API_DOMAIN}/assets${data?.image}`}
+      alt={data?.title}
+    />
+  );
+};
+
+export default function ImageMediaCard({ data }) {
   return (
     <CustomLink to={`/videos/${data?.id}`}>
       <Stack alignItems="center" sx={{ mr: 6 }}>
-        <CardMedia
-          component="img"
-          height={upperTabletSize ? "220px" : "180px"}
-          sx={{
-            width: upperTabletSize ? "140px" : "120px",
-            boxShadow: "0 3px 10px -2px black",
-            borderRadius: "12px",
-            mb: { xs: 1, sm: 1.5 },
-          }}
-          image={`${process.env.REACT_APP_API_DOMAIN}/assets${data?.image}`}
-          alt={data?.title}
-        />
+        <ImageOnlyMediaCard data={data} />
         <Box
           sx={{
             display: "flex",
