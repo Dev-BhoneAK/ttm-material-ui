@@ -7,6 +7,7 @@ import Container from "@mui/material/Container";
 
 import Home from "./screens/Home";
 import NewsList from "./screens/NewsList";
+import NovelsList from "./screens/NovelsList";
 import NewsArticlesDetail from "./screens/NewsArticlesDetail";
 import QuestionAnswer from "./screens/QuestionAnswer";
 import Weather from "./screens/Weather";
@@ -52,6 +53,7 @@ export default function App() {
               <Route path="/" exact index element={<Home />} />
               <Route path="/news" element={<NewsList />} />
               <Route path="/news/:news_id" element={<NewsArticlesDetail />} />
+              <Route path="/novels" element={<NovelsList />} />
               <Route path="/question-answer" element={<QuestionAnswer />} />
               <Route path="/weather" element={<Weather />} />
             </Routes>
