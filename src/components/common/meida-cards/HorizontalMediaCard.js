@@ -4,9 +4,12 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
+import { textOverflowEllipsis } from "../../../utils/commonStyle";
+
 import CustomLink from "../CustomLink";
 
 export default function HorizontalMediaCard({ data, margin, width }) {
+  console.log(textOverflowEllipsis);
   return (
     <CustomLink to={`/news/${data?.id}`}>
       <Card
@@ -25,17 +28,7 @@ export default function HorizontalMediaCard({ data, margin, width }) {
           alt={data?.title}
         />
         <CardContent sx={{ "&:last-child": { p: 0 } }}>
-          <Typography
-            sx={{
-              maxWidth: "100%",
-              display: "-webkit-box",
-              WebkitBoxOrient: "vertical",
-              WebkitLineClamp: 2,
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              variant: "body1",
-            }}
-          >
+          <Typography sx={{ ...textOverflowEllipsis }}>
             {data?.title}
           </Typography>
         </CardContent>
