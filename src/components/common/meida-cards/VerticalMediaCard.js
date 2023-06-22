@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 
 import useUpperTabletSize from "../../../hooks/useUpperTabletSize";
 import CustomLink from "../CustomLink";
+import { textOverflowEllipsis } from "../../../utils/commonStyle";
 
 export default function VerticalMediaCard({ data }) {
   const upperTabletSize = useUpperTabletSize();
@@ -20,7 +21,9 @@ export default function VerticalMediaCard({ data }) {
           alt={data?.title}
         />
         <CardContent sx={{ "&:last-child": { py: 2 } }}>
-          <Typography variant="body1">{data?.title}</Typography>
+          <Typography sx={{ ...textOverflowEllipsis }}>
+            {data?.title}
+          </Typography>
         </CardContent>
       </Card>
     </CustomLink>
