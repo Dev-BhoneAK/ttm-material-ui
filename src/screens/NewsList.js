@@ -12,10 +12,12 @@ import NewsCategoriesList from "../components/common/NewsCategoriesList";
 import HorizontalMediaCard from "../components/common/meida-cards/HorizontalMediaCard";
 import VerticalMediaCard from "../components/common/meida-cards/VerticalMediaCard";
 import { getLatestNewsByCategories } from "../utils/api";
+import useUpperTabletSize from "../hooks/useUpperTabletSize";
 
 export default function NewsList() {
   const [newsCategoriesData, setNewsCategoriesData] = useState([]);
   const [latestNews, setLatestNews] = useState([]);
+  const upperTabletSize = useUpperTabletSize();
 
   useEffect(() => {
     async function fetchData() {
@@ -43,26 +45,9 @@ export default function NewsList() {
             setLatestNews={setLatestNews}
           />
           <Grid container spacing={2}>
-            {latestNews.map((data, index) =>
-              index < 2 ? (
-                <Grid
-                  item
-                  xs={12}
-                  //   sm={6}
-                  key={data?.id}
-                  sx={{
-                    display:
-                      index === 1 ? { xs: "none", sm: "block" } : undefined,
-                  }}
-                >
-                  <VerticalMediaCard data={data} />
-                </Grid>
-              ) : (
-                <Grid item xs={12} sm={6} key={data?.id}>
-                  <HorizontalMediaCard margin="false" data={data} />
-                </Grid>
-              )
-            )}
+            {upperTabletSize
+              ? NewsListUpperTabletView({ latestNews })
+              : NewsListMobileView({ latestNews })}
           </Grid>
         </Box>
       </BackgroundGrey>
@@ -70,3 +55,29 @@ export default function NewsList() {
     </>
   );
 }
+
+const NewsListMobileView = ({ latestNews }) => {
+  const [firstNew, ...restNews] = latestNews;
+  return (
+    <>
+      <Grid item xs={12}>
+        <VerticalMediaCard data={firstNew} />
+      </Grid>
+      {restNews.map((data) => (
+        <Grid item xs={12} key={data?.id}>
+          <HorizontalMediaCard margin="false" data={data} />
+        </Grid>
+      ))}
+    </>
+  );
+};
+
+const NewsListUpperTabletView = ({ latestNews }) => (
+  <>
+    {latestNews.map((data, index) => (
+      <Grid item sm={6} key={data?.id}>
+        <VerticalMediaCard data={data} />
+      </Grid>
+    ))}
+  </>
+);
