@@ -18,13 +18,12 @@ export default function VideoMediaCard({ data }) {
         sx={{
           mr: 1.5,
           mb: 1.5,
-          width: upperTabletSize ? "260px" : "200px",
         }}
       >
         <Box sx={{ position: "relative" }}>
           <CardMedia
             component="img"
-            height={upperTabletSize ? "146px" : "112px"}
+            height={upperTabletSize ? "200" : "150"}
             image={`${process.env.REACT_APP_API_DOMAIN}/assets${data?.screenImage}`}
             alt={data?.title}
           />
