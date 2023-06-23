@@ -41,7 +41,7 @@ export default function BottomNavigationBar() {
           value="/novels"
         />
         <BottomNavigationAction
-          label="Mobile TV"
+          label="Videos"
           icon={<LiveTvIcon />}
           component={Link}
           to="/videos"
