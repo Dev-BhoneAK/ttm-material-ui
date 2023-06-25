@@ -6,13 +6,11 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
 import useUpperTabletSize from "../../../hooks/useUpperTabletSize";
-import CustomLink from "../CustomLink";
 import { textOverflowEllipsis } from "../../../utils/commonStyle";
 
 export default function VerticalMediaCard({ data }) {
   const upperTabletSize = useUpperTabletSize();
   return (
-    <CustomLink to={`/news/${data?.id}`}>
       <Card>
         <CardMedia
           component="img"
@@ -26,6 +24,5 @@ export default function VerticalMediaCard({ data }) {
           </Typography>
         </CardContent>
       </Card>
-    </CustomLink>
   );
 }
