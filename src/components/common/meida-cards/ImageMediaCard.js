@@ -5,7 +5,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 
 import useUpperTabletSize from "../../../hooks/useUpperTabletSize";
-import CustomLink from "../CustomLink";
 
 export const ImageOnlyMediaCard = ({ data }) => {
   const upperTabletSize = useUpperTabletSize();
@@ -27,23 +26,21 @@ export const ImageOnlyMediaCard = ({ data }) => {
 
 export default function ImageMediaCard({ data }) {
   return (
-    <CustomLink to={`/videos/${data?.id}`}>
-      <Stack alignItems="center" sx={{ mr: 6 }}>
-        <ImageOnlyMediaCard data={data} />
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Typography variant="body1">{data?.title}</Typography>
-          <Typography variant="body2" color="text.secondary">
-            by BAK
-          </Typography>
-        </Box>
-      </Stack>
-    </CustomLink>
+    <Stack alignItems="center" sx={{ mr: 6 }}>
+      <ImageOnlyMediaCard data={data} />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Typography variant="body1">{data?.title}</Typography>
+        <Typography variant="body2" color="text.secondary">
+          by BAK
+        </Typography>
+      </Box>
+    </Stack>
   );
 }
