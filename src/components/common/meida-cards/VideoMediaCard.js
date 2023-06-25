@@ -8,40 +8,37 @@ import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
 import Typography from "@mui/material/Typography";
 
 import useUpperTabletSize from "../../../hooks/useUpperTabletSize";
-import CustomLink from "../CustomLink";
 
 export default function VideoMediaCard({ data }) {
   const upperTabletSize = useUpperTabletSize();
   return (
-    <CustomLink to={`/videos/${data?.id}`}>
-      <Card
-        sx={{
-          mr: 1.5,
-          mb: 1.5,
-        }}
-      >
-        <Box sx={{ position: "relative" }}>
-          <CardMedia
-            component="img"
-            height={upperTabletSize ? "200" : "150"}
-            image={`${process.env.REACT_APP_API_DOMAIN}/assets${data?.screenImage}`}
-            alt={data?.title}
-          />
-          <PlayCircleOutlineIcon
-            sx={{
-              position: "absolute",
-              color: "white",
-              fontSize: upperTabletSize ? "50px" : "40px",
-              top: "35%",
-              left: "50%",
-              transform: "translateX(-50%)",
-            }}
-          />
-        </Box>
-        <CardContent sx={{ "&:last-child": { py: 2 } }}>
-          <Typography variant="body1">{data?.title}</Typography>
-        </CardContent>
-      </Card>
-    </CustomLink>
+    <Card
+      sx={{
+        mr: 1.5,
+        mb: 1.5,
+      }}
+    >
+      <Box sx={{ position: "relative" }}>
+        <CardMedia
+          component="img"
+          height={upperTabletSize ? "200" : "150"}
+          image={`${process.env.REACT_APP_API_DOMAIN}/assets${data?.screenImage}`}
+          alt={data?.title}
+        />
+        <PlayCircleOutlineIcon
+          sx={{
+            position: "absolute",
+            color: "white",
+            fontSize: upperTabletSize ? "50px" : "40px",
+            top: "35%",
+            left: "50%",
+            transform: "translateX(-50%)",
+          }}
+        />
+      </Box>
+      <CardContent sx={{ "&:last-child": { py: 2 } }}>
+        <Typography variant="body1">{data?.title}</Typography>
+      </CardContent>
+    </Card>
   );
 }
