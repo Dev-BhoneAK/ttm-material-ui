@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid";
 
-import { sectionSpacing } from "../utils/commonStyle";
+import CustomLink from "../CustomLink";
 import { getVideos } from "../utils/api";
-import MainAppBar from "../components/app-bar/MainAppBar";
 import SearchBox from "../components/search-box";
+import { sectionSpacing } from "../utils/commonStyle";
+import MainAppBar from "../components/app-bar/MainAppBar";
 import BackgroundGrey from "../components/common/BackgroundGrey";
 import BottomNavigationBar from "../components/app-bar/BottomNavigationBar";
 import VideoMediaCard from "../components/common/meida-cards/VideoMediaCard";
@@ -32,7 +33,9 @@ export default function VideosList() {
           <Grid container spacing={2}>
             {videosData.map((video) => (
               <Grid item xs={12} sm={6} key={video?.id}>
-                <VideoMediaCard data={video} />
+                <CustomLink to={`/videos/${video?.id}`}>
+                  <VideoMediaCard data={video} />
+                </CustomLink>
               </Grid>
             ))}
           </Grid>
