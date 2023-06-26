@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import { Box } from "@mui/material";
 
-import { sectionSpacing } from "../utils/commonStyle";
+import CustomLink from "../components/common/CustomLink";
 import { getCategories } from "../utils/api";
+import { sectionSpacing } from "../utils/commonStyle";
 import MainAppBar from "../components/app-bar/MainAppBar";
 import SearchBox from "../components/search-box";
 import BackgroundGrey from "../components/common/BackgroundGrey";
@@ -61,11 +62,15 @@ const NewsListMobileView = ({ latestNews }) => {
   return (
     <>
       <Grid item xs={12}>
-        <VerticalMediaCard data={firstNew} />
+        <CustomLink to={`/news/${firstNew?.id}`}>
+          <VerticalMediaCard data={firstNew} />
+        </CustomLink>
       </Grid>
       {restNews.map((data) => (
         <Grid item xs={12} key={data?.id}>
-          <HorizontalMediaCard margin="false" data={data} />
+          <CustomLink to={`/news/${data?.id}`}>
+            <HorizontalMediaCard margin="false" data={data} />
+          </CustomLink>
         </Grid>
       ))}
     </>
@@ -76,7 +81,9 @@ const NewsListUpperTabletView = ({ latestNews }) => (
   <>
     {latestNews.map((data, index) => (
       <Grid item sm={6} key={data?.id}>
-        <VerticalMediaCard data={data} />
+        <CustomLink to={`/news/${data?.id}`}>
+          <VerticalMediaCard data={data} />
+        </CustomLink>
       </Grid>
     ))}
   </>

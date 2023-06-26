@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid";
 
-import CustomLink from "../CustomLink";
+import CustomLink from "../components/common/CustomLink";
 import { getVideos } from "../utils/api";
 import SearchBox from "../components/search-box";
 import { sectionSpacing } from "../utils/commonStyle";

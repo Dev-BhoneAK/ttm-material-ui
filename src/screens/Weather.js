@@ -8,16 +8,10 @@ import HeadingTitle from "../components/common/HeadingTitle";
 import WeatherMediaCard from "../components/common/meida-cards/WeatherMediaCard";
 
 export default function Weather() {
-  const styles = {
-    mb: { xs: 2, sm: 3 },
-    position: "static",
-    boxShadow: "none",
-  };
   return (
     <>
       <DetailAppBar
         headingTitle={<HeadingTitle title="Weekly Weather Forecast" />}
-        styles={styles}
       />
       <Box sx={{ px: 3, pb: 3 }}>
         {/* <Zoom in timeout={1000}>
