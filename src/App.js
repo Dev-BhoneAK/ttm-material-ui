@@ -10,6 +10,7 @@ import NewsList from "./screens/NewsList";
 import NovelsList from "./screens/NovelsList";
 import VideosList from "./screens/VideosList";
 import NewsArticlesDetail from "./screens/NewsArticlesDetail";
+import NovelDetail from "./screens/NovelDetail";
 import QuestionAnswer from "./screens/QuestionAnswer";
 import Weather from "./screens/Weather";
 import ColorModeContext from "./context/ColorModeContext";
@@ -55,6 +56,7 @@ export default function App() {
               <Route path="/news" element={<NewsList />} />
               <Route path="/news/:news_id" element={<NewsArticlesDetail />} />
               <Route path="/novels" element={<NovelsList />} />
+              <Route path="/novels/:novel_id" element={<NovelDetail />} />
               <Route path="/videos" element={<VideosList />} />
               <Route path="/question-answer" element={<QuestionAnswer />} />
               <Route path="/weather" element={<Weather />} />
