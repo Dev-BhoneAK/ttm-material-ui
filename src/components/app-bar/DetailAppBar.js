@@ -28,6 +28,9 @@ export default function DetailAppBar(props) {
       <HideOnScroll {...props}>
         <AppBar
           sx={{
+            mb: { xs: 2, sm: 3 },
+            position: "static",
+            boxShadow: "none",
             ...props.styles,
           }}
         >
