@@ -1,7 +1,7 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
 
-import CustomLink from "../CustomLink";
+import CustomLink from "../common/CustomLink";
 import SectionTitle from "../common/SectionTitle";
 import BackgroundGrey from "../common/BackgroundGrey";
 import HorizontalMediaCard from "../common/meida-cards/HorizontalMediaCard";
