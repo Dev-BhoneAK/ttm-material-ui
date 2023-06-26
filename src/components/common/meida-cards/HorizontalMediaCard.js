@@ -6,12 +6,9 @@ import Typography from "@mui/material/Typography";
 
 import { textOverflowEllipsis } from "../../../utils/commonStyle";
 
-import CustomLink from "../CustomLink";
 
 export default function HorizontalMediaCard({ data, margin, width }) {
-  console.log(textOverflowEllipsis);
   return (
-    <CustomLink to={`/news/${data?.id}`}>
       <Card
         sx={{
           mr: margin === "true" && 1.5,
@@ -33,6 +30,5 @@ export default function HorizontalMediaCard({ data, margin, width }) {
           </Typography>
         </CardContent>
       </Card>
-    </CustomLink>
   );
 }
