@@ -5,8 +5,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-import useUpperTabletSize from "../../hooks/useUpperTabletSize";
+import CustomLink from "../common/CustomLink";
 import SectionTitle from "../common/SectionTitle";
+import useUpperTabletSize from "../../hooks/useUpperTabletSize";
 import HorizontalMediaCard from "../common/meida-cards/HorizontalMediaCard";
 
 export default function PopularNews({ popularNews, sectionSpacing }) {
@@ -23,12 +24,13 @@ export default function PopularNews({ popularNews, sectionSpacing }) {
       <SectionTitle icon="trending_up" title="Popular News" />
       <Slider {...settings}>
         {popularNews.map((popularNew) => (
-          <HorizontalMediaCard
-            margin="true"
-            key={popularNew.id}
-            data={popularNew}
-            width={upperTabletSize ? "380px" : "280px"}
-          />
+          <CustomLink to={`/news/${popularNew?.id}`} key={popularNew.id}>
+            <HorizontalMediaCard
+              margin="true"
+              data={popularNew}
+              width={upperTabletSize ? "380px" : "280px"}
+            />
+          </CustomLink>
         ))}
       </Slider>
     </Box>
