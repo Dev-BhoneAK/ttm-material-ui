@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Box } from "@mui/material";
 
+import CustomLink from "../common/CustomLink";
 import SectionTitle from "../common/SectionTitle";
 import VideoMediaCard from "../common/meida-cards/VideoMediaCard";
 
@@ -20,7 +21,9 @@ export default function MobileTV({ videos, sectionSpacing }) {
       <SectionTitle icon="live_tv" title="Mobile TV" showAll />
       <Slider {...settings}>
         {videos.map((video) => (
-          <VideoMediaCard margin="true" key={video.id} data={video} />
+          <CustomLink to={`/videos/${video?.id}`} key={video.id}>
+            <VideoMediaCard margin="true" data={video} />
+          </CustomLink>
         ))}
       </Slider>
     </Box>
