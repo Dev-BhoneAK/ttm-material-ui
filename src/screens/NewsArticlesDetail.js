@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Container, Box, Typography } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 import { useParams } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import CustomTypo from "../components/common/CustomTypo";
@@ -12,8 +11,7 @@ import RelatedInfoSection from "../components/news-articles-detail/RelatedInfoSe
 import { getLatestNewsByCategories } from "../utils/api";
 
 export default function NewsArticlesDetail() {
-  const theme = useTheme();
-  let { news_id } = useParams();
+  const { news_id } = useParams();
   const [newsDetailData, setNewsDetailData] = useState(undefined);
   const [relatedNewsData, setRelatedNewsData] = useState(undefined);
   const [loading, setLoading] = useState(true);
