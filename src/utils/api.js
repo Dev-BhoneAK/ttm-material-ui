@@ -62,3 +62,10 @@ export function getNewsDetail(postId) {
     .then((data) => data[0]);
   return newsDetail;
 }
+
+export function getNovelsDetail(novelId) {
+  const novelDetail = fetch(novelsApi + "?id=" + novelId)
+    .then((response) => response.json())
+    .then((data) => data[0]);
+  return novelDetail;
+}
