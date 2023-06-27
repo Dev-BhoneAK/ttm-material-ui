@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Box } from "@mui/material";
 
+import CustomLink from "../common/CustomLink";
 import SectionTitle from "../common/SectionTitle";
 import ImageMediaCard from "../common/meida-cards/ImageMediaCard";
 
@@ -22,7 +23,9 @@ export default function Novels({ novels, sectionSpacing }) {
       <SectionTitle icon="menu_book" title="Novels" />
       <Slider {...settings}>
         {novels.map((novel) => (
-          <ImageMediaCard margin="true" key={novel.id} data={novel} />
+          <CustomLink to={`/novels/${novel?.id}`} key={novel.id}>
+            <ImageMediaCard margin="true" data={novel} />
+          </CustomLink>
         ))}
       </Slider>
     </Box>
