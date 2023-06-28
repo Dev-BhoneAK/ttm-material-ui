@@ -1,6 +1,7 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 import CssBaseline from "@mui/material/CssBaseline";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import Slide from "@mui/material/Slide";
@@ -40,13 +41,14 @@ export default function DetailAppBar(props) {
                 size="large"
                 edge="start"
                 aria-label="menu"
-                sx={{ mr: 2 }}
                 color="inherit"
               >
                 <ArrowBackIcon />
               </IconButton>
             </Link>
-            {props.headingTitle}
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              {props.headingTitle}
+            </Typography>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
