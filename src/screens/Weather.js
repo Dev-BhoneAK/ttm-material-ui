@@ -24,7 +24,7 @@ export default function Weather() {
 
         <Zoom in timeout={2000}>
           <WeatherMediaCard
-            forecast="Partly Cloudy Day"
+            forecast="Partly Cloudy"
             icon="PARTLY_CLOUDY_DAY"
             day="TODAY"
           />

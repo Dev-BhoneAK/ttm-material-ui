@@ -30,7 +30,8 @@ const WeatherMediaCard = React.forwardRef(function (props, ref) {
       <Grid container>
         <Grid
           item
-          xs={5}
+          xs={4}
+          sm={5}
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -47,7 +48,8 @@ const WeatherMediaCard = React.forwardRef(function (props, ref) {
         </Grid>
         <Grid
           item
-          xs={2}
+          xs={4}
+          sm={2}
           sx={{
             display: "flex",
             justifyContent: "center",
@@ -91,16 +93,56 @@ const WeatherMediaCard = React.forwardRef(function (props, ref) {
         </Grid>
         <Grid
           item
-          xs={5}
+          xs={4}
+          sm={5}
           sx={{
             display: "flex",
             flexDirection: "row",
-            justifyContent: "space-evenly",
             alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <Grid container>
-            <Grid item xs={6}>
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={{ xs: 1, sm: 6 }}
+          >
+            <Stack
+              justifyContent="flex-start"
+              alignItems="center"
+              direction="row"
+              spacing={1}
+            >
+              <CustomIcon icon="waves" />
+              <Stack
+                direction="column"
+                alignItems="flex-start"
+                justifyContent="center"
+              >
+                <Typography variant="body1">88%</Typography>
+                <Typography variant="body2">Humidity</Typography>
+              </Stack>
+            </Stack>
+            <Stack
+              justifyContent="flex-start"
+              alignItems="center"
+              direction="row"
+              spacing={1}
+            >
+              <CustomIcon icon="air" />
+              <Stack
+                direction="column"
+                alignItems="flex-start"
+                justifyContent="center"
+              >
+                <Typography variant="body1" sx={{ color: textColor }}>
+                  3Km/h
+                </Typography>
+                <Typography variant="body2">Wind</Typography>
+              </Stack>
+            </Stack>
+          </Stack>
+          {/* <Grid container>
+            <Grid item xs={12} sm={6}>
               <Stack
                 justifyContent="center"
                 alignItems="center"
@@ -118,7 +160,7 @@ const WeatherMediaCard = React.forwardRef(function (props, ref) {
                 </Stack>
               </Stack>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} sm={6}>
               <Stack
                 justifyContent="center"
                 alignItems="center"
@@ -138,7 +180,7 @@ const WeatherMediaCard = React.forwardRef(function (props, ref) {
                 </Stack>
               </Stack>
             </Grid>
-          </Grid>
+          </Grid> */}
           {/* </Stack> */}
         </Grid>
       </Grid>
