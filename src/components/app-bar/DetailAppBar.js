@@ -42,6 +42,7 @@ export default function DetailAppBar(props) {
                 edge="start"
                 aria-label="menu"
                 color="inherit"
+                sx={{ pr: 0 }}
               >
                 <ArrowBackIcon />
               </IconButton>
