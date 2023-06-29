@@ -7,8 +7,10 @@ import { Box } from "@mui/material";
 import CustomLink from "../common/CustomLink";
 import SectionTitle from "../common/SectionTitle";
 import VideoMediaCard from "../common/meida-cards/VideoMediaCard";
+import useUpperTabletSize from "../../hooks/useUpperTabletSize";
 
 export default function MobileTV({ videos, sectionSpacing }) {
+  const upperTabletSize = useUpperTabletSize();
   const settings = {
     className: "slider variable-width",
     slidesToShow: 1,
@@ -22,7 +24,11 @@ export default function MobileTV({ videos, sectionSpacing }) {
       <Slider {...settings}>
         {videos.map((video) => (
           <CustomLink to={`/videos/${video?.id}`} key={video.id}>
-            <VideoMediaCard margin="true" data={video} />
+            <VideoMediaCard
+              margin="true"
+              data={video}
+              width={upperTabletSize ? "380px" : "280px"}
+            />
           </CustomLink>
         ))}
       </Slider>
