@@ -1,13 +1,15 @@
 import * as React from "react";
+
 import { createRoot } from "react-dom/client";
-import CssBaseline from "@mui/material/CssBaseline";
+import { BrowserRouter } from "react-router-dom";
+import { pdfjs } from "react-pdf";
+
 import App from "./App";
 import "./index.css";
-import theme from "./theme";
-import { BrowserRouter } from "react-router-dom";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 root.render(
   <BrowserRouter>
