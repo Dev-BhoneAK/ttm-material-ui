@@ -15,9 +15,6 @@ import DetailAppBar from "../components/app-bar/DetailAppBar";
 import useSwipeEvent from "../hooks/useSwipeEvent";
 import useWindowWidth from "../hooks/useWindowWidth";
 import useUpperTabletSize from "../hooks/useUpperTabletSize";
-import "./sample.css";
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 // const options = {
 //   cMapUrl: `https://unpkg.com/pdfjs-dist@${pdfjs.version}/cmaps/`,
@@ -34,7 +31,6 @@ export default function NovelDetail() {
   const width = useWindowWidth();
   const upperTabletSize = useUpperTabletSize();
   const { handleTouchStart, checkTouchPositionDiff } = useSwipeEvent();
-  const [file, setFile] = useState(undefined);
 
   useEffect(() => {
     async function fetchData() {
@@ -78,8 +74,8 @@ export default function NovelDetail() {
         headingTitle={<HeadingTitle title={novelDetailData?.title} />}
       />
       <Box sx={{ px: 3, pb: 3 }}>
-        <div className="Main__container">
-          <div className="Example__container">
+        <div className="novel-detail-container">
+          <div className="document-container">
             {upperTabletSize && pdfLoadSuccess && (
               <Button
                 variant="contained"
@@ -90,11 +86,7 @@ export default function NovelDetail() {
                 <ArrowBackIosNewIcon />
               </Button>
             )}
-            <div
-              className="document__container"
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-            >
+            <div onTouchStart={handleTouchStart} onTouchMove={handleTouchMove}>
               <Document
                 file={`${process.env.REACT_APP_API_DOMAIN}/assets${novelDetailData?.filePath}`}
                 onLoadSuccess={onDocumentLoadSuccess}
@@ -120,7 +112,7 @@ export default function NovelDetail() {
           </div>
 
           {pdfLoadSuccess && (
-            <div className="page__number__container">
+            <div className="page-number-container">
               <p>
                 Page {pageNumber || (numPages ? 1 : "--")} of {numPages || "--"}
               </p>
