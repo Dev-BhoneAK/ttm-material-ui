@@ -3,3 +3,22 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+/* NovelDetail Style */
+.novel-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.document-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.page-number-container {
+  margin-top: 1rem;
+}
+/* NovelDetail Style */
