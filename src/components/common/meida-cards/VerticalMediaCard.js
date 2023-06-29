@@ -11,18 +11,16 @@ import { textOverflowEllipsis } from "../../../utils/commonStyle";
 export default function VerticalMediaCard({ data }) {
   const upperTabletSize = useUpperTabletSize();
   return (
-      <Card>
-        <CardMedia
-          component="img"
-          height={upperTabletSize ? "240px" : "200px"}
-          image={`${process.env.REACT_APP_API_DOMAIN}/assets${data?.image}`}
-          alt={data?.title}
-        />
-        <CardContent sx={{ "&:last-child": { py: 2 } }}>
-          <Typography sx={{ ...textOverflowEllipsis }}>
-            {data?.title}
-          </Typography>
-        </CardContent>
-      </Card>
+    <Card>
+      <CardMedia
+        component="img"
+        height={upperTabletSize ? "240px" : "200px"}
+        image={`${process.env.REACT_APP_API_DOMAIN}/assets${data?.image}`}
+        alt={data?.title}
+      />
+      <CardContent sx={{ "&:last-child": { py: 2 } }}>
+        <Typography sx={{ ...textOverflowEllipsis }}>{data?.title}</Typography>
+      </CardContent>
+    </Card>
   );
 }
