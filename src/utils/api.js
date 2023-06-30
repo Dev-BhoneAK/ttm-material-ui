@@ -69,3 +69,10 @@ export function getNovelsDetail(novelId) {
     .then((data) => data[0]);
   return novelDetail;
 }
+
+export function getVideoDetail(videoId) {
+  const videoDetail = fetch(videosApi + "?id=" + videoId)
+    .then((response) => response.json())
+    .then((data) => data[0]);
+  return videoDetail;
+}
