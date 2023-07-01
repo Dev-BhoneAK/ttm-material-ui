@@ -15,7 +15,6 @@ export default function ImageAppBar(props) {
             left: "0",
             top: "0",
             maxWidth: "md",
-            px: { xs: 0 },
             margin: "0 auto",
           }}
         />
@@ -28,18 +27,6 @@ export default function ImageAppBar(props) {
           bgColor="inherit"
         />
       </Container>
-
-      {/* <Container> */}
-      {/* <Box>
-        {[...new Array(30)]
-          .map(
-            () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
-          )
-          .join("\n")}
-      </Box> */}
     </>
   );
 }
