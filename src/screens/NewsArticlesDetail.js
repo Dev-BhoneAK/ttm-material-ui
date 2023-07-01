@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Container, Box, Typography } from "@mui/material";
+import { Container, Grid, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import CustomTypo from "../components/common/CustomTypo";
 
+import useUpperTabletSize from "../hooks/useUpperTabletSize";
+import CustomLink from "../components/common/CustomLink";
+import ImageAppBar from "../components/app-bar/ImageAppBar";
+import ContentInfo from "../components/common/ContentInfo";
+import VerticalMediaCard from "../components/common/meida-cards/VerticalMediaCard";
+import HorizontalMediaCard from "../components/common/meida-cards/HorizontalMediaCard";
+import RelatedInfoSection from "../components/common/RelatedInfoSection";
 import { getNewsDetail } from "../utils/api";
-import ImageAppBar from "../components/news-articles-detail/ImageAppBar";
-import ContentInfo from "../components/news-articles-detail/ContentInfo";
-import RelatedInfoSection from "../components/news-articles-detail/RelatedInfoSection";
 import { getLatestNewsByCategories } from "../utils/api";
 
 export default function NewsArticlesDetail() {
@@ -23,14 +27,14 @@ export default function NewsArticlesDetail() {
       setNewsDetailData(newsDetail);
     }
     fetchData();
-  }, []);
+  }, [news_id]);
 
   useEffect(() => {
     getLatestNewsByCategories(1).then((data) => {
       setLoading(false);
       setRelatedNewsData(data);
     });
-  }, []);
+  }, [news_id]);
 
   return (
     <>
@@ -51,8 +55,26 @@ export default function NewsArticlesDetail() {
       {loading ? (
         <Typography variant="h6">Loading...</Typography>
       ) : (
-        <RelatedInfoSection relatedNewsData={relatedNewsData} title="News" />
+        <RelatedInfoSection
+          renderedData={<RenderRelatedNews relatedNewsData={relatedNewsData} />}
+          title="News"
+        />
       )}
     </>
   );
 }
+
+const RenderRelatedNews = ({ relatedNewsData }) => {
+  const upperTabletSize = useUpperTabletSize();
+  return relatedNewsData.map((data) => (
+    <Grid item xs={12} sm={6} key={data?.id}>
+      <CustomLink to={`/news/${data?.id}`}>
+        {upperTabletSize ? (
+          <VerticalMediaCard data={data} />
+        ) : (
+          <HorizontalMediaCard margin="false" data={data} />
+        )}
+      </CustomLink>
+    </Grid>
+  ));
+};
