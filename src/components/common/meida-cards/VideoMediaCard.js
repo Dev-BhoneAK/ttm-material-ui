@@ -9,13 +9,14 @@ import Typography from "@mui/material/Typography";
 
 import useUpperTabletSize from "../../../hooks/useUpperTabletSize";
 
-export default function VideoMediaCard({ data }) {
+export default function VideoMediaCard({ data, width }) {
   const upperTabletSize = useUpperTabletSize();
   return (
     <Card
       sx={{
         mr: 1.5,
         mb: 1.5,
+        width: width,
       }}
     >
       <Box sx={{ position: "relative" }}>
