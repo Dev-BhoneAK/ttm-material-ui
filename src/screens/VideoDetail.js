@@ -5,6 +5,7 @@ import Divider from "@mui/material/Divider";
 import CustomTypo from "../components/common/CustomTypo";
 import ReactPlayer from "react-player/file";
 
+import DetailAppBar from "../components/app-bar/DetailAppBar";
 import useUpperTabletSize from "../hooks/useUpperTabletSize";
 import CustomLink from "../components/common/CustomLink";
 import ImageAppBar from "../components/app-bar/ImageAppBar";
@@ -39,12 +40,25 @@ export default function VideoDetail() {
   return (
     <>
       {/* <ImageAppBar image={videoDetailData?.image} /> */}
-      <ReactPlayer
-        url={`${process.env.REACT_APP_API_DOMAIN}/assets${videoDetailData?.video}`}
-        controls={true}
-        width="100%"
-        playing={true}
-      />
+      <Container sx={{ position: "relative", px: { xs: 0 } }}>
+        <DetailAppBar
+          styles={{
+            backgroundColor: "rgba(0,0,0,0.3)",
+            position: "fixed",
+            left: "0",
+            top: "0",
+            maxWidth: "md",
+            px: { xs: 0 },
+            margin: "0 auto",
+          }}
+        />
+        <ReactPlayer
+          url={`${process.env.REACT_APP_API_DOMAIN}/assets${videoDetailData?.video}`}
+          controls={true}
+          width="100%"
+          playing={true}
+        />
+      </Container>
       <Container sx={{ px: { xs: 2 }, py: { xs: 2 } }}>
         <CustomTypo variant="body1" title={videoDetailData?.title} />
       </Container>
