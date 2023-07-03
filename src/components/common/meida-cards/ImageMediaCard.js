@@ -6,17 +6,17 @@ import Typography from "@mui/material/Typography";
 
 import useUpperTabletSize from "../../../hooks/useUpperTabletSize";
 
-export const ImageOnlyMediaCard = ({ data }) => {
+export const ImageOnlyMediaCard = ({ data, styles }) => {
   const upperTabletSize = useUpperTabletSize();
   return (
     <CardMedia
       component="img"
-      height={upperTabletSize ? "220px" : "180px"}
       sx={{
-        width: upperTabletSize ? "140px" : "120px",
+        width: upperTabletSize ? 140 : 120,
+        height: upperTabletSize ? 220 : 180,
         boxShadow: "0 3px 10px -2px black",
         borderRadius: "12px",
-        mb: { xs: 1, sm: 1.5 },
+        ...styles,
       }}
       image={`${process.env.REACT_APP_API_DOMAIN}/assets${data?.image}`}
       alt={data?.title}
@@ -27,7 +27,7 @@ export const ImageOnlyMediaCard = ({ data }) => {
 export default function ImageMediaCard({ data }) {
   return (
     <Stack alignItems="center" sx={{ mr: 6 }}>
-      <ImageOnlyMediaCard data={data} />
+      <ImageOnlyMediaCard data={data} styles={{ mb: { xs: 1, sm: 1.5 } }} />
       <Box
         sx={{
           display: "flex",
