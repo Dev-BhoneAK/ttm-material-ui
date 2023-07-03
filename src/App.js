@@ -14,6 +14,7 @@ import NovelDetail from "./screens/NovelDetail";
 import VideoDetail from "./screens/VideoDetail";
 import QuestionAnswer from "./screens/QuestionAnswer";
 import Weather from "./screens/Weather";
+import SearchResults from "./screens/SearchResults";
 import ColorModeContext from "./context/ColorModeContext";
 import { responsiveFontSizes } from "@mui/material/styles";
 
@@ -62,6 +63,7 @@ export default function App() {
               <Route path="/videos/:video_id" element={<VideoDetail />} />
               <Route path="/question-answer" element={<QuestionAnswer />} />
               <Route path="/weather" element={<Weather />} />
+              <Route path="/search" element={<SearchResults />} />
             </Routes>
           </Container>
         </Suspense>
