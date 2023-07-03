@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
 
 import { getHomeData } from "../utils/api";
-import MainAppBar from "../components/app-bar/MainAppBar";
-import SearchBox from "../components/search-box";
+import { sectionSpacing, spaceFromNavigationBar } from "../utils/commonStyle";
+import HeaderSection from "../components/common/HeaderSection";
 import PopularCategories from "../components/home/PopularCategories";
 import BackgroundGrey from "../components/common/BackgroundGrey";
 import PopularNews from "../components/home/PopularNews";
@@ -14,12 +13,6 @@ import MobileTV from "../components/home/MobileTV";
 import BottomNavigationBar from "../components/app-bar/BottomNavigationBar";
 
 export default function Home() {
-  const theme = useTheme();
-
-  const sectionSpacing = {
-    mb: { xs: 2, sm: 3 },
-  };
-
   const [homeData, setHomeData] = useState({
     popularNews: [],
     newsCategories: [],
@@ -42,18 +35,10 @@ export default function Home() {
   }, []);
   return (
     <>
-      <MainAppBar sectionSpacing={sectionSpacing} />
+      <HeaderSection />
       <Box sx={{ p: "0.5rem 1.5rem" }}>
-        <SearchBox sectionSpacing={sectionSpacing} />
         <PopularCategories sectionSpacing={sectionSpacing} />
       </Box>
-      {/* <Box
-        sx={{
-          background: theme.palette.mode === "dark" ? "inherit" : "#e1e1e1",
-          p: "0.5rem 1.5rem",
-          ...sectionSpacing,
-        }}
-      > */}
       <BackgroundGrey styles={sectionSpacing}>
         <PopularNews
           popularNews={homeData.popularNews}
@@ -69,7 +54,7 @@ export default function Home() {
       {/* <BackgroundGrey></BackgroundGrey> */}
 
       {/* </Box> */}
-      <Box sx={{ p: "0 1.5rem", mb: 7 }}>
+      <Box sx={{ p: "0 1.5rem", ...spaceFromNavigationBar }}>
         <MobileTV videos={homeData.videos} sectionSpacing={sectionSpacing} />
       </Box>
       <BottomNavigationBar />
