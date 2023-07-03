@@ -6,45 +6,18 @@ import SearchIcon from "@mui/icons-material/Search";
 import Divider from "@mui/material/Divider";
 import TuneIcon from "@mui/icons-material/Tune";
 import { Box } from "@mui/material";
+import { useNavigate, createSearchParams } from "react-router-dom";
 
 export default function SearchBox({ sectionSpacing }) {
-  const top100Films = [
-    { title: "The Shawshank Redemption", year: 1994 },
-    { title: "The Godfather", year: 1972 },
-    { title: "The Godfather: Part II", year: 1974 },
-    { title: "The Dark Knight", year: 2008 },
-    { title: "12 Angry Men", year: 1957 },
-    { title: "Schindler's List", year: 1993 },
-    { title: "Pulp Fiction", year: 1994 },
-    {
-      title: "The Lord of the Rings: The Return of the King",
-      year: 2003,
-    },
-    { title: "The Good, the Bad and the Ugly", year: 1966 },
-    { title: "Fight Club", year: 1999 },
-    {
-      title: "The Lord of the Rings: The Fellowship of the Ring",
-      year: 2001,
-    },
-    {
-      title: "Star Wars: Episode V - The Empire Strikes Back",
-      year: 1980,
-    },
-    { title: "Forrest Gump", year: 1994 },
-    { title: "Inception", year: 2010 },
-    {
-      title: "The Lord of the Rings: The Two Towers",
-      year: 2002,
-    },
-    { title: "One Flew Over the Cuckoo's Nest", year: 1975 },
-    { title: "Goodfellas", year: 1990 },
-    { title: "The Matrix", year: 1999 },
-    { title: "Seven Samurai", year: 1954 },
-    {
-      title: "Star Wars: Episode IV - A New Hope",
-      year: 1977,
-    },
-  ];
+  const navigate = useNavigate();
+  const [searchInput, setSearchInput] = React.useState("");
+
+  const handleSearch = () => {
+    console.log(searchInput);
+    const params = createSearchParams({ keyword: searchInput });
+    navigate(`/search?${params}`);
+  };
+
   return (
     <Box sx={{ ...sectionSpacing }}>
       <Paper
@@ -61,9 +34,16 @@ export default function SearchBox({ sectionSpacing }) {
           sx={{ ml: 1, flex: 1 }}
           placeholder="What are you looking for?"
           inputProps={{ "aria-label": "search box" }}
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
         />
         <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-        <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+        <IconButton
+          type="button"
+          sx={{ p: "10px" }}
+          aria-label="search"
+          onClick={handleSearch}
+        >
           <SearchIcon />
         </IconButton>
         {/* <IconButton type="button" sx={{ p: "10px" }} aria-label="filter">
