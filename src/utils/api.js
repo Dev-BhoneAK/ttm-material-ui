@@ -3,18 +3,20 @@ const categoriesApi = `${process.env.REACT_APP_API_DOMAIN}/categories`;
 const novelsApi = `${process.env.REACT_APP_API_DOMAIN}/novels`;
 const videosApi = `${process.env.REACT_APP_API_DOMAIN}/videos`;
 
-export function getHomeData() {
+export function getHomeData(keyword = "") {
   return Promise.all([
     getPopularNews(),
     getCategories("news"),
-    getNovels(),
-    getVideos(),
-  ]).then(([popularNews, newsCategories, novels, videos]) => {
+    getNovels(keyword),
+    getVideos(keyword),
+    getNews(keyword),
+  ]).then(([popularNews, newsCategories, novels, videos, news]) => {
     return {
       popularNews,
       newsCategories,
       novels,
       videos,
+      news,
     };
   });
 }
@@ -42,15 +44,23 @@ export function getLatestNewsByCategories(categoryId) {
   return latestNewsByCategories;
 }
 
-export function getNovels() {
-  const novels = fetch(novelsApi + "?_limit=4").then((response) =>
+export function getNews(keyword = "") {
+  const news = fetch(newsApi + "?_limit=4&q=" + keyword).then((response) =>
+    response.json()
+  );
+  console.log(news);
+  return news;
+}
+
+export function getNovels(keyword = "") {
+  const novels = fetch(novelsApi + "?_limit=4&q=" + keyword).then((response) =>
     response.json()
   );
   return novels;
 }
 
-export function getVideos() {
-  const videos = fetch(videosApi + "?_limit=4").then((response) =>
+export function getVideos(keyword = "") {
+  const videos = fetch(videosApi + "?_limit=8&q=" + keyword).then((response) =>
     response.json()
   );
   return videos;
