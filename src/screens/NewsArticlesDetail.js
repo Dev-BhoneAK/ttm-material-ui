@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Container, Grid, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 import Divider from "@mui/material/Divider";
-import CustomTypo from "../components/common/CustomTypo";
 
+import CustomTypo from "../components/common/CustomTypo";
+import CustomImage from "../components/common/CustomImage";
 import useUpperTabletSize from "../hooks/useUpperTabletSize";
 import CustomLink from "../components/common/CustomLink";
-import ImageAppBar from "../components/app-bar/ImageAppBar";
+import TransparentAppBar from "../components/app-bar/TransparentAppBar";
 import ContentInfo from "../components/common/ContentInfo";
 import VerticalMediaCard from "../components/common/meida-cards/VerticalMediaCard";
 import HorizontalMediaCard from "../components/common/meida-cards/HorizontalMediaCard";
@@ -38,10 +39,14 @@ export default function NewsArticlesDetail() {
 
   return (
     <>
-      <ImageAppBar image={newsDetailData?.image} />
+      <TransparentAppBar>
+        <CustomImage
+          imageSrc={`${process.env.REACT_APP_API_DOMAIN}/assets${newsDetailData?.image}`}
+        />
+      </TransparentAppBar>
+
       <Container sx={{ px: { xs: 2 }, py: { xs: 2 } }}>
         <CustomTypo variant="body1" title={newsDetailData?.title} />
-        {/* <Typography variant="h6">{newsDetailData?.title}</Typography> */}
       </Container>
       <Divider variant="middle" />
       <ContentInfo
