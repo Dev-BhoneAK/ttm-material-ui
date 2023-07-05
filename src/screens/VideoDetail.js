@@ -3,23 +3,22 @@ import { Container, Grid, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import CustomTypo from "../components/common/CustomTypo";
-import ReactPlayer from "react-player/file";
 
-import DetailAppBar from "../components/app-bar/DetailAppBar";
-import useUpperTabletSize from "../hooks/useUpperTabletSize";
-import CustomLink from "../components/common/CustomLink";
-import ImageAppBar from "../components/app-bar/ImageAppBar";
-import ContentInfo from "../components/common/ContentInfo";
-import VideoMediaCard from "../components/common/meida-cards/VideoMediaCard";
-import RelatedInfoSection from "../components/common/RelatedInfoSection";
-import { getVideoDetail } from "../utils/api";
 import { getVideos } from "../utils/api";
+import { getVideoDetail } from "../utils/api";
+import CustomLink from "../components/common/CustomLink";
+import ContentInfo from "../components/common/ContentInfo";
+import CustomVideoPlayer from "../components/common/CustomVideoPlayer";
+import TransparentAppBar from "../components/app-bar/TransparentAppBar";
+import RelatedInfoSection from "../components/common/RelatedInfoSection";
+import VideoMediaCard from "../components/common/meida-cards/VideoMediaCard";
 
 export default function VideoDetail() {
   const { video_id } = useParams();
   const [videoDetailData, setVideoDetailData] = useState(undefined);
   const [relatedVideosData, setRelatedVideosData] = useState(undefined);
   const [loading, setLoading] = useState(true);
+  const [showAppBar, setShowAppBar] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -39,26 +38,12 @@ export default function VideoDetail() {
 
   return (
     <>
-      {/* <ImageAppBar image={videoDetailData?.image} /> */}
-      <Container sx={{ position: "relative", px: { xs: 0 } }}>
-        <DetailAppBar
-          styles={{
-            backgroundColor: "rgba(0,0,0,0.3)",
-            position: "fixed",
-            left: "0",
-            top: "0",
-            maxWidth: "md",
-            px: { xs: 0 },
-            margin: "0 auto",
-          }}
+      <TransparentAppBar showAppBar={showAppBar}>
+        <CustomVideoPlayer
+          videoUrl={`${process.env.REACT_APP_API_DOMAIN}/assets${videoDetailData?.video}`}
+          setShowAppBar={setShowAppBar}
         />
-        <ReactPlayer
-          url={`${process.env.REACT_APP_API_DOMAIN}/assets${videoDetailData?.video}`}
-          controls={true}
-          width="100%"
-          playing={true}
-        />
-      </Container>
+      </TransparentAppBar>
       <Container sx={{ px: { xs: 2 }, py: { xs: 2 } }}>
         <CustomTypo variant="body1" title={videoDetailData?.title} />
       </Container>
