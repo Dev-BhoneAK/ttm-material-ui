@@ -9,7 +9,7 @@ export default function BackgroundGrey(props) {
     <Box
       sx={{
         background: greyBackground,
-        p: "0.5rem 1.5rem",
+        p: { xs: 2, sm: 3 },
         ...props.styles,
       }}
     >
