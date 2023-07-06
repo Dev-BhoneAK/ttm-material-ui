@@ -27,7 +27,11 @@ export default function MobileTV({ videos, sectionSpacing }) {
             <VideoMediaCard
               margin="true"
               data={video}
-              width={upperTabletSize ? "380px" : "280px"}
+              styles={{
+                width: upperTabletSize ? 380 : 280,
+                mr: 1.5,
+                mb: 1.5,
+              }}
             />
           </CustomLink>
         ))}
