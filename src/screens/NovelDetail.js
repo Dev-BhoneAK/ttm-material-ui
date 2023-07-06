@@ -95,7 +95,7 @@ export default function NovelDetail() {
               >
                 <Page
                   pageNumber={pageNumber}
-                  width={Math.min(width * 0.9, 800)}
+                  width={Math.min(width * 1, 800)} // 100% view-width on mobile
                 />
               </Document>
             </div>
