@@ -40,15 +40,20 @@ export default function NewsList() {
         <SearchBox sectionSpacing={sectionSpacing} />
       </Box>
       <BackgroundGrey styles={sectionSpacing}>
-        <Box sx={{ ...sectionSpacing }}>
+        <Box>
           <NewsCategoriesList
             newsCategories={newsCategoriesData}
             setLatestNews={setLatestNews}
           />
           <Grid container spacing={2}>
-            {upperTabletSize
+            {/* {upperTabletSize
               ? NewsListUpperTabletView({ latestNews })
-              : NewsListMobileView({ latestNews })}
+              : NewsListMobileView({ latestNews })} */}
+            {upperTabletSize ? (
+              <NewsListUpperTabletView newsList={latestNews} />
+            ) : (
+              <NewsListMobileView newsList={latestNews} />
+            )}
           </Grid>
         </Box>
       </BackgroundGrey>
@@ -57,8 +62,8 @@ export default function NewsList() {
   );
 }
 
-const NewsListMobileView = ({ latestNews }) => {
-  const [firstNew, ...restNews] = latestNews;
+export const NewsListMobileView = ({ newsList }) => {
+  const [firstNew, ...restNews] = newsList;
   return (
     <>
       <Grid item xs={12}>
@@ -77,9 +82,9 @@ const NewsListMobileView = ({ latestNews }) => {
   );
 };
 
-const NewsListUpperTabletView = ({ latestNews }) => (
+export const NewsListUpperTabletView = ({ newsList }) => (
   <>
-    {latestNews.map((data, index) => (
+    {newsList.map((data, index) => (
       <Grid item sm={6} key={data?.id}>
         <CustomLink to={`/news/${data?.id}`}>
           <VerticalMediaCard data={data} />
