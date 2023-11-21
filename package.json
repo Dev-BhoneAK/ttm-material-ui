@@ -25,6 +25,7 @@
     "react-player": "^2.12.0",
     "react-router-dom": "^6.4.2",
     "react-scripts": "latest",
+    "react-share": "^5.0.2",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1"
   },
