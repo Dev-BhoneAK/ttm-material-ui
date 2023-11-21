@@ -20,6 +20,7 @@ export default function NewsArticlesDetail() {
   const [newsDetailData, setNewsDetailData] = useState(undefined);
   const [relatedNewsData, setRelatedNewsData] = useState(undefined);
   const [loading, setLoading] = useState(true);
+  const [showAppBar, setShowAppBar] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -39,7 +40,7 @@ export default function NewsArticlesDetail() {
 
   return (
     <>
-      <TransparentAppBar>
+      <TransparentAppBar showAppBar={showAppBar}>
         <CustomImage
           imageSrc={`${process.env.REACT_APP_API_DOMAIN}/assets${newsDetailData?.image}`}
         />
