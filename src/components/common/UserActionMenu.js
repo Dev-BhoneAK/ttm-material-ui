@@ -1,33 +1,54 @@
-import React from "react";
-import CustomIcon from "./CustomIcon";
-import { ListItemIcon } from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+import React, { useState } from "react";
+import { Star } from "@mui/icons-material";
+import {
+  Menu,
+  MenuItem,
+  ListItemIcon,
+  Snackbar,
+  Divider,
+  Button,
+} from "@mui/material";
 
-function UserActionMenu({ open, handleClose }) {
+import SocialIconsContainer from "./SocialIconsContainer";
+
+function UserActionMenu({ open, anchorEl, handleClose }) {
+  const [favorite, setFavorite] = useState(false);
+  const [snackBarOpen, setSnackBarOpen] = useState(false);
+  const handleFavorite = () => {
+    setFavorite(!favorite);
+    setSnackBarOpen(true);
+    // handleClose();
+  };
+
+  let favoriteChar = favorite ? "Unset" : "Set";
+
   return (
-    <Menu
-    //   id="long-menu"
-    //   MenuListProps={{
-    //     "aria-labelledby": "long-button",
-    //   }}
-      anchorEl={anchorEl}
-      open={open}
-      onClose={handleClose}
-      PaperProps={{
-        style: {
-          maxHeight: ITEM_HEIGHT * 4.5,
-          width: "20ch",
-        },
-      }}
-    >
-      <MenuItem onClick={handleClose}>
-        <ListItemIcon>star</ListItemIcon>
-        Set Favorite
-      </MenuItem>
-      <Divider />
-      {/* <MenuItem onClick={handleClose}>
+    <>
+      <Menu
+        id="long-menu"
+        MenuListProps={{
+          "aria-labelledby": "long-button",
+        }}
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        PaperProps={{
+          style: {
+            width: "20ch",
+          },
+        }}
+      >
+        <MenuItem onClick={handleFavorite}>
+          <ListItemIcon color="red">
+            <Star fontSize="small" sx={{ color: favorite && "#f29911" }} />
+          </ListItemIcon>
+          {favoriteChar} Favorite
+        </MenuItem>
+        <Divider />
+        {/* <MenuItem> */}
+        <SocialIconsContainer />
+        {/* </MenuItem> */}
+        {/* <MenuItem onClick={handleClose}>
         <ListItemIcon>
           <PersonAdd fontSize="small" />
         </ListItemIcon>
@@ -45,7 +66,29 @@ function UserActionMenu({ open, handleClose }) {
         </ListItemIcon>
         Logout
       </MenuItem> */}
-    </Menu>
+      </Menu>
+
+      <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        open={snackBarOpen}
+        autoHideDuration={3000}
+        onClose={() => setSnackBarOpen(false)}
+        sx={{
+          background: "inherit",
+          "& .MuiAlert-message": { textAlign: "center", width: "inherit" },
+        }}
+        message={
+          favorite ? "Added To Favorite List" : "Removed From Favorite List"
+        }
+        action={
+          favorite && (
+            <Button color="primary" size="small" onClick={handleClose}>
+              View
+            </Button>
+          )
+        }
+      />
+    </>
   );
 }
 
