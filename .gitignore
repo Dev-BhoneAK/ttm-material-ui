@@ -1,3 +1,5 @@
 node_modules
 src/assets
 .env
+.DS_Store
+.idea
