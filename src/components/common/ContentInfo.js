@@ -1,6 +1,6 @@
 import React from "react";
-import { Stack, Box } from "@mui/material";
-import IconButton from "@mui/material";
+import { Stack, Snackbar } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
 
 import UserActionMenu from "./UserActionMenu";
 import CustomIcon from "./CustomIcon";
@@ -8,7 +8,6 @@ import CustomTypo from "./CustomTypo";
 
 export default function ContentInfo(props) {
   const iconStyles = {
-    fontSize: { xs: "1.3rem", md: "1.8rem" },
     marginRight: { xs: "0.1rem", md: "0.2rem" },
   };
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -36,16 +35,20 @@ export default function ContentInfo(props) {
         <CustomTypo variant="subtitle1" title={props?.viewCount} />
       </Stack>
       <IconButton
-        // aria-label="more"
-        // id="long-button"
-        // aria-controls={open ? "long-menu" : undefined}
-        // aria-expanded={open ? "true" : undefined}
-        // aria-haspopup="true"
+        aria-label="more"
+        id="long-button"
+        aria-controls={open ? "long-menu" : undefined}
+        aria-expanded={open ? "true" : undefined}
+        aria-haspopup="true"
         onClick={handleClick}
       >
         <CustomIcon icon="more_horiz" />
       </IconButton>
-      <UserActionMenu open={open} handleClose={handleClose} />
+      <UserActionMenu
+        open={open}
+        anchorEl={anchorEl}
+        handleClose={handleClose}
+      />
       {/* <IconButton
         size="large"
         edge="end"
