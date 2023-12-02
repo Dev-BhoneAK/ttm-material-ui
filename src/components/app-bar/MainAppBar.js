@@ -16,7 +16,13 @@ import { useTheme, createTheme } from "@mui/material/styles";
 import ColorModeContext from "../../context/ColorModeContext";
 import HeadingTitle from "../common/HeadingTitle";
 
+import useLocalStorage from "../../hooks/useLocalStorage";
+import useDarkMode from "../../hooks/useDarkMode";
+
 export default function MainAppBar({ sectionSpacing }) {
+  const [storedValue, setValue] = useLocalStorage("theme", "light");
+  const [mode, toggleMode] = useDarkMode();
+
   const theme = useTheme();
   const colorMode = React.useContext(ColorModeContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -72,7 +78,7 @@ export default function MainAppBar({ sectionSpacing }) {
 
   return (
     <Box sx={{ flexGrow: 1, ...sectionSpacing }}>
-    <AppBar position="static" sx={{ boxShadow: "none" }}>
+      <AppBar position="static" sx={{ boxShadow: "none" }}>
         <Toolbar>
           <Stack alignItems="center">
             <CloudIcon sx={{ fontSize: "28px" }} />
@@ -99,6 +105,9 @@ export default function MainAppBar({ sectionSpacing }) {
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              onClick={() =>
+                setValue((prevMode) => (prevMode == "light" ? "dark" : "light"))
+              }
             >
               <Badge badgeContent={17} color="error">
                 <NotificationsIcon />
