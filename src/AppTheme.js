@@ -32,9 +32,9 @@ function AppTheme(props) {
       toggleColorMode: () => {
         console.log("toogle mode ", mode);
         setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-        // const newMode = mode === "light" ? "dark" : "light";
+        const newMode = mode === "light" ? "dark" : "light";
         // setMode(newMode);
-        localStorage.setItem("darkMode", JSON.stringify(mode));
+        localStorage.setItem("darkMode", JSON.stringify(newMode));
       },
     }),
     []
