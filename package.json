@@ -1,54 +1,51 @@
 {
-  "name": "create-react-app",
-  "version": "5.0.0",
-  "homepage": "https://dev-bhoneak.github.io/ttm-material-ui",
-  "private": true,
-  "scripts": {
-    "start": "json-server --watch public/db.json --port 7890 & react-scripts start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "dependencies": {
-    "@emotion/react": "latest",
-    "@emotion/styled": "latest",
-    "@mui/icons-material": "^5.10.9",
-    "@mui/material": "latest",
-    "@tanstack/react-query": "^5.12.2",
-    "json-server": "^0.17.3",
-    "mui-image": "^1.0.7",
-    "prop-types": "^15.8.1",
-    "react": "latest",
-    "react-animated-weather": "^4.0.1",
-    "react-dom": "latest",
-    "react-pdf": "^7.0.1",
-    "react-player": "^2.12.0",
-    "react-router-dom": "^6.4.2",
-    "react-scripts": "latest",
-    "react-share": "^5.0.2",
-    "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "eslint": "^8.55.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "eslint-plugin-react": "^7.33.2",
-    "gh-pages": "^4.0.0",
-    "prettier": "^3.1.1"
-  }
+    "name": "Infotainment Web App",
+    "version": "5.0.0",
+    "private": true,
+    "scripts": {
+        "start": "json-server --watch public/db.json --port 7890 & react-scripts start",
+        "predeploy": "npm run build",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "dependencies": {
+        "@emotion/react": "latest",
+        "@emotion/styled": "latest",
+        "@mui/icons-material": "^5.10.9",
+        "@mui/material": "latest",
+        "@tanstack/react-query": "^5.12.2",
+        "json-server": "^0.17.3",
+        "mui-image": "^1.0.7",
+        "prop-types": "^15.8.1",
+        "react": "latest",
+        "react-animated-weather": "^4.0.1",
+        "react-dom": "latest",
+        "react-pdf": "^7.0.1",
+        "react-player": "^2.12.0",
+        "react-router-dom": "^6.4.2",
+        "react-scripts": "latest",
+        "react-share": "^5.0.2",
+        "react-slick": "^0.29.0",
+        "slick-carousel": "^1.8.1"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "eslint": "^8.55.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.0.1",
+        "eslint-plugin-react": "^7.33.2",
+        "prettier": "^3.1.1"
+    }
 }
