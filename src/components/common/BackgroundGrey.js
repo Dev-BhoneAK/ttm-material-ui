@@ -1,19 +1,24 @@
-import React from "react";
-import { Box } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import useDarkLightTheme from "../../hooks/useDarkLightTheme";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Box } from '@mui/material';
+import useDarkLightTheme from '../../hooks/useDarkLightTheme';
 
-export default function BackgroundGrey(props) {
-  const { greyBackground } = useDarkLightTheme();
-  return (
-    <Box
-      sx={{
-        background: greyBackground,
-        p: { xs: 2, sm: 3 },
-        ...props.styles,
-      }}
-    >
-      {props.children}
-    </Box>
-  );
+export default function BackgroundGrey({ children, styles }) {
+    const { greyBackground } = useDarkLightTheme();
+    return (
+        <Box
+            sx={{
+                background: greyBackground,
+                p: { xs: 2, sm: 3 },
+                ...styles
+            }}
+        >
+            {children}
+        </Box>
+    );
 }
+
+BackgroundGrey.propTypes = {
+    children: PropTypes.node,
+    styles: PropTypes.object
+};
