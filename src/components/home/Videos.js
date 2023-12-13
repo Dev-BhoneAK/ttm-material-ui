@@ -10,7 +10,7 @@ import SectionTitle from '../common/SectionTitle';
 import VideoMediaCard from '../common/meida-cards/VideoMediaCard';
 import useUpperTabletSize from '../../hooks/useUpperTabletSize';
 
-export default function MobileTV({ videos, sectionSpacing }) {
+export default function Videos({ videos, sectionSpacing }) {
     const upperTabletSize = useUpperTabletSize();
     const settings = {
         className: 'slider variable-width',
@@ -21,7 +21,7 @@ export default function MobileTV({ videos, sectionSpacing }) {
     };
     return (
         <Box sx={{ ...sectionSpacing }}>
-            <SectionTitle icon="live_tv" title="Mobile TV" showAll />
+            <SectionTitle icon="live_tv" title="Videos" />
             <Slider {...settings}>
                 {videos.map((video) => (
                     <CustomLink to={`/videos/${video?.id}`} key={video.id}>
@@ -41,7 +41,7 @@ export default function MobileTV({ videos, sectionSpacing }) {
     );
 }
 
-MobileTV.propTypes = {
+Videos.propTypes = {
     videos: PropTypes.array,
     sectionSpacing: PropTypes.object
 };
