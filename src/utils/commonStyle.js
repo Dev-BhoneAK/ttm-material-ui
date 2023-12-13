@@ -10,7 +10,8 @@ export const textOverflowEllipsis = {
     maxWidth: '100%',
     display: '-webkit-box',
     WebkitBoxOrient: 'vertical',
-    WebkitLineClamp: 1,
+    WebkitLineClamp: 2,
+    lineHeight: '1.5',
     overflow: 'hidden',
     textOverflow: 'ellipsis'
 };
