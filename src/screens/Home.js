@@ -9,7 +9,7 @@ import BackgroundGrey from '../components/common/BackgroundGrey';
 import PopularNews from '../components/home/PopularNews';
 import LatestNewsByCategories from '../components/home/LatestNewsByCategories';
 import Novels from '../components/home/Novels';
-import MobileTV from '../components/home/MobileTV';
+import MobileTV from '../components/home/Videos';
 import BottomNavigationBar from '../components/app-bar/BottomNavigationBar';
 
 export default function Home() {

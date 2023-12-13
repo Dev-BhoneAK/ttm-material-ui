@@ -70,7 +70,10 @@ export default function NovelDetail() {
 
     return (
         <>
-            <DetailAppBar headingTitle={<HeadingTitle title={novelDetailData?.title} />} />
+            <DetailAppBar
+                headingTitle={<HeadingTitle title={novelDetailData?.title} />}
+                showAppBar={true}
+            />
             <Box sx={{ px: 3, pb: 3 }}>
                 <div className="novel-detail-container">
                     <div className="document-container">

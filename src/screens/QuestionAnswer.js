@@ -11,11 +11,11 @@ export default function QuestionAnswer() {
         boxShadow: 'none'
     };
 
-    const greyBackground = useGreyBackground();
     return (
         <>
             <DetailAppBar
                 headingTitle={<HeadingTitle title="Question & Answer" />}
+                showAppBar={true}
                 styles={styles}
             />
             <CustomAccordion

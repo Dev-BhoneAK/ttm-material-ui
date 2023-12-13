@@ -10,7 +10,10 @@ import WeatherMediaCard from '../components/common/meida-cards/WeatherMediaCard'
 export default function Weather() {
     return (
         <>
-            <DetailAppBar headingTitle={<HeadingTitle title="Weekly Weather Forecast" />} />
+            <DetailAppBar
+                headingTitle={<HeadingTitle title="Weekly Weather Forecast" />}
+                showAppBar={true}
+            />
             <Box sx={{ px: 3, pb: 3 }}>
                 {/* <Zoom in timeout={1000}>
           <WeatherCard date="20-02-2022" icon="RAIN" />
