@@ -4,10 +4,14 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
 
 import { textOverflowEllipsis } from '../../../utils/commonStyle';
+import useUpperTabletSize from '../../../hooks/useUpperTabletSize';
 
 export default function HorizontalMediaCard({ data, margin, width }) {
+    const theme = useTheme();
+    const upperTabletSize = useUpperTabletSize();
     return (
         <Card
             sx={{
@@ -15,12 +19,13 @@ export default function HorizontalMediaCard({ data, margin, width }) {
                 width: width,
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'left'
+                justifyContent: 'left',
+                background: theme.palette.cardBackground
             }}
         >
             <CardMedia
                 component="img"
-                sx={{ width: 100, mr: '8px' }}
+                sx={{ width: upperTabletSize ? '120px' : '100px', mr: '8px' }}
                 image={`${process.env.REACT_APP_API_DOMAIN}/assets${data?.image}`}
                 alt={data?.title}
             />

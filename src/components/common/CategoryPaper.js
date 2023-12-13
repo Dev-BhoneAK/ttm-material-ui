@@ -2,11 +2,13 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 
 import CustomIcon from '../common/CustomIcon';
 import CustomTypo from '../common/CustomTypo';
 
 export default function CategoryPaper({ name, icon, title }) {
+    const theme = useTheme();
     return (
         <Stack
             spacing={1}
@@ -18,6 +20,7 @@ export default function CategoryPaper({ name, icon, title }) {
                 sx={{
                     width: { xs: 50, md: 80 },
                     height: { xs: 50, md: 80 },
+                    background: theme.palette.cardBackground,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center'

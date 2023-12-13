@@ -7,7 +7,7 @@ import { grey } from '@mui/material/colors';
 import CustomTypo from '../common/CustomTypo';
 import CustomIcon from '../common/CustomIcon';
 
-export default function SectionTitle({ icon, title, showAll }) {
+export default function SectionTitle({ icon, title }) {
     return (
         <Box
             sx={{
@@ -21,29 +21,18 @@ export default function SectionTitle({ icon, title, showAll }) {
                 sx={{
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'space-between',
-                    color: grey[800]
+                    justifyContent: 'space-between'
+                    // color: grey[800]
                 }}
             >
                 {icon && <CustomIcon icon={icon} />}
                 <CustomTypo title={title} variant="h6" styles={{ ml: '5px' }} />
             </Box>
-            <Link
-                to="/"
-                style={{
-                    textDecoration: 'none',
-                    color: 'inherit',
-                    display: showAll ? 'block' : 'none'
-                }}
-            >
-                <CustomTypo title="Show All" variant="body2" />
-            </Link>
         </Box>
     );
 }
 
 SectionTitle.propTypes = {
     icon: PropTypes.string,
-    title: PropTypes.string,
-    showAll: PropTypes.bool
+    title: PropTypes.string
 };

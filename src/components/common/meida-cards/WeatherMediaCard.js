@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import ReactAnimatedWeather from 'react-animated-weather';
 
@@ -12,6 +13,7 @@ import { Grid } from '@mui/material';
 
 const WeatherMediaCard = React.forwardRef(function (props, ref) {
     const { blueBox, whiteBox, textColor } = useDarkLightTheme();
+    const theme = useTheme();
     const defaults = {
         color: 'white',
         size: 50,
@@ -23,7 +25,8 @@ const WeatherMediaCard = React.forwardRef(function (props, ref) {
                 width: '100%',
                 height: 100,
                 mb: { xs: 2, sm: 3 },
-                borderTop: '1px solid #e5e5e5'
+                background: theme.palette.cardBackground
+                // borderTop: '1px solid #e5e5e5'
             }}
             ref={ref}
             {...props}
@@ -58,7 +61,10 @@ const WeatherMediaCard = React.forwardRef(function (props, ref) {
                 >
                     <Box
                         sx={{
-                            background: blueBox, //"#1E88E5",
+                            background:
+                                theme.palette.mode === 'dark'
+                                    ? theme.palette.grey[800]
+                                    : theme.palette.primary.main,
                             width: 100,
                             height: 100,
                             alignSelf: 'center'

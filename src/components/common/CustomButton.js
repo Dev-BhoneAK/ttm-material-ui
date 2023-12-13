@@ -7,7 +7,7 @@ import { grey, purple } from '@mui/material/colors';
 import useUpperTabletSize from '../../hooks/useUpperTabletSize';
 
 const CustomizedButton = styled(Button)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#222' : '#fff',
+    backgroundColor: theme.palette.cardBackground,
     color: theme.palette.mode === 'dark' ? '#fff' : grey[800],
     '&:hover': {
         backgroundColor: grey[500],

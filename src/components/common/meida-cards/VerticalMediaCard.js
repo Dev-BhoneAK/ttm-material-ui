@@ -5,14 +5,16 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
 
 import useUpperTabletSize from '../../../hooks/useUpperTabletSize';
 import { textOverflowEllipsis } from '../../../utils/commonStyle';
 
 export default function VerticalMediaCard({ data }) {
+    const theme = useTheme();
     const upperTabletSize = useUpperTabletSize();
     return (
-        <Card>
+        <Card sx={{ background: theme.palette.cardBackground }}>
             <CardMedia
                 component="img"
                 height={upperTabletSize ? '240px' : '200px'}
@@ -20,7 +22,9 @@ export default function VerticalMediaCard({ data }) {
                 alt={data?.title}
             />
             <CardContent sx={{ '&:last-child': { py: 2 } }}>
-                <Typography sx={{ ...textOverflowEllipsis }}>{data?.title}</Typography>
+                <Typography sx={{ ...textOverflowEllipsis }} variant="body1">
+                    {data?.title}
+                </Typography>
             </CardContent>
         </Card>
     );

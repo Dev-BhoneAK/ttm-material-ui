@@ -7,14 +7,17 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import Typography from '@mui/material/Typography';
+import { useTheme } from '@mui/material/styles';
 
 import useUpperTabletSize from '../../../hooks/useUpperTabletSize';
 
 export default function VideoMediaCard({ data, styles }) {
+    const theme = useTheme();
     const upperTabletSize = useUpperTabletSize();
     return (
         <Card
             sx={{
+                background: theme.palette.cardBackground,
                 ...styles
             }}
         >
