@@ -41,13 +41,40 @@ function AppTheme(props) {
         []
     );
 
-    const theme = useMemo(() => {
-        return createTheme({
-            palette: {
-                mode
-            }
-        });
-    }, [mode]);
+    const getDesignTokens = (mode) => ({
+        palette: {
+            mode,
+            // ...{
+            //     primary:
+            // sectionBackground: mode === 'light' ? '#e1e1e1' : '#121212'
+            // }
+            ...(mode === 'light'
+                ? {
+                      // palette values for light mode
+                      primary: { main: '#1565c0' }, // only change mui's primary color on light mode
+                      //   primaryColor: '#1565c0',
+                      cardBackground: '#fff',
+                      sectionBackground: '#e1e1e1'
+                  }
+                : {
+                      // palette values for dark mode
+                      //   primary: { main: '#fff' },
+                      //   primaryColor: '#424242',
+                      cardBackground: '#272727',
+                      sectionBackground: '#121212'
+                  })
+        }
+    });
+
+    // Update the theme only if the mode changes
+    const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+    // const theme = useMemo(() => {
+    //     return createTheme({
+    //         palette: {
+    //             mode
+    //         }
+    //     });
+    // }, [mode]);
 
     console.log('current mode ', mode);
 
