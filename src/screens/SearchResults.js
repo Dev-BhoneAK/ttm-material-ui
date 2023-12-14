@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
-import { Box } from '@mui/material';
 import Divider from '@mui/material/Divider';
 
-import { getHomeData } from '../utils/api';
+import { getSearchData } from '../utils/api';
 import { RenderVideosList } from './VideosList';
 import Novel from '../components/common/Novel';
 import SectionTitle from '../components/common/SectionTitle';
 import useUpperTabletSize from '../hooks/useUpperTabletSize';
 import HeaderSection from '../components/common/HeaderSection';
+import CustomTypo from '../components/common/CustomTypo';
 import BackgroundGrey from '../components/common/BackgroundGrey';
 import { NewsListMobileView, NewsListUpperTabletView } from './NewsList';
 import BottomNavigationBar from '../components/app-bar/BottomNavigationBar';
@@ -18,6 +18,7 @@ import { sectionSpacing, spaceFromNavigationBar } from '../utils/commonStyle';
 export default function SearchResults() {
     const upperTabletSize = useUpperTabletSize();
     const [searchParams, setSearchParams] = useSearchParams();
+    const [typeKeyword, setTypeKeyword] = useState('');
     const [searchData, setSearchData] = useState({
         news: [],
         novels: [],
@@ -26,19 +27,35 @@ export default function SearchResults() {
 
     useEffect(() => {
         async function fetchData(keyword) {
-            const { novels, videos, news } = await getHomeData(keyword);
+            const { novels, videos, news } = await getSearchData(keyword);
             setSearchData({
                 news,
                 novels,
                 videos
             });
         }
-        fetchData(searchParams.get('keyword'));
+        fetchData(searchParams.get('keyword') ?? '');
     }, []);
     return (
         <>
             <HeaderSection />
             <BackgroundGrey styles={{ ...sectionSpacing, ...spaceFromNavigationBar }}>
+                <CustomTypo
+                    variant="h4"
+                    title="Search Results:"
+                    styles={{ display: 'block', textAlign: 'center' }}
+                />
+                {!(
+                    searchData?.news?.length ||
+                    searchData?.novels?.length ||
+                    searchData?.videos?.length
+                ) && (
+                    <CustomTypo
+                        variant="h6"
+                        title="No Result Found"
+                        styles={{ display: 'block', textAlign: 'center' }}
+                    />
+                )}
                 {searchData?.news?.length > 0 && (
                     <>
                         <SectionTitle icon="newspaper" title="News" />
