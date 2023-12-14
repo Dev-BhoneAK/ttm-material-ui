@@ -3,13 +3,13 @@ const categoriesApi = `${process.env.REACT_APP_API_DOMAIN}/categories`;
 const novelsApi = `${process.env.REACT_APP_API_DOMAIN}/novels`;
 const videosApi = `${process.env.REACT_APP_API_DOMAIN}/videos`;
 
-export function getHomeData(keyword = '') {
+export function getHomeData() {
     return Promise.all([
         getPopularNews(),
         getCategories('news'),
-        getNovels(keyword),
-        getVideos(keyword),
-        getNews(keyword)
+        getNovels(),
+        getVideos(),
+        getNews()
     ]).then(([popularNews, newsCategories, novels, videos, news]) => {
         return {
             popularNews,
@@ -19,6 +19,18 @@ export function getHomeData(keyword = '') {
             news
         };
     });
+}
+
+export function getSearchData(keyword) {
+    return Promise.all([getNovels(keyword), getVideos(keyword), getNews(keyword)]).then(
+        ([novels, videos, news]) => {
+            return {
+                novels,
+                videos,
+                news
+            };
+        }
+    );
 }
 
 export function getPopularNews() {
