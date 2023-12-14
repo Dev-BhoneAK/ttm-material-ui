@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { useSearchParams } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
@@ -9,10 +9,13 @@ import Divider from '@mui/material/Divider';
 import { Box } from '@mui/material';
 import { useNavigate, createSearchParams } from 'react-router-dom';
 
+import useSearchInput from '../../hooks/useSearchInput';
+
 export default function SearchBox({ sectionSpacing }) {
     const navigate = useNavigate();
-    const [searchParams, setSearchParams] = useSearchParams();
-    const [searchInput, setSearchInput] = React.useState(searchParams.get('keyword') ?? '');
+    // const [searchParams, setSearchParams] = useSearchParams();
+    // const [searchInput, setSearchInput] = React.useState(searchParams.get('keyword') ?? '');
+    const [searchInput, setSearchInput] = useSearchInput();
 
     const handleSearch = () => {
         console.log(searchInput);
