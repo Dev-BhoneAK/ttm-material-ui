@@ -9,13 +9,13 @@ import Divider from '@mui/material/Divider';
 import { Box } from '@mui/material';
 import { useNavigate, createSearchParams } from 'react-router-dom';
 
-import useSearchInput from '../../hooks/useSearchInput';
+import useSearchData from '../../hooks/useSearchData';
 
-export default function SearchBox({ sectionSpacing }) {
+export default function SearchBox({ sectionSpacing, fetchData }) {
     const navigate = useNavigate();
     // const [searchParams, setSearchParams] = useSearchParams();
     // const [searchInput, setSearchInput] = React.useState(searchParams.get('keyword') ?? '');
-    const [searchInput, setSearchInput] = useSearchInput();
+    const { searchInput, setSearchInput } = useSearchData();
 
     const handleSearch = () => {
         console.log(searchInput);
@@ -25,6 +25,11 @@ export default function SearchBox({ sectionSpacing }) {
         }
         const params = createSearchParams({ keyword: searchInput });
         navigate(`/search?${params}`);
+    };
+
+    const handleSearchInput = (event) => {
+        setSearchInput(event.target.value);
+        fetchData && fetchData(searchInput);
     };
 
     return (
@@ -44,7 +49,7 @@ export default function SearchBox({ sectionSpacing }) {
                     placeholder="What are you looking for?"
                     inputProps={{ 'aria-label': 'search box' }}
                     value={searchInput}
-                    onChange={(e) => setSearchInput(e.target.value)}
+                    onChange={handleSearchInput}
                     onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), handleSearch())}
                 />
                 <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
@@ -62,5 +67,10 @@ export default function SearchBox({ sectionSpacing }) {
 }
 
 SearchBox.propTypes = {
-    sectionSpacing: PropTypes.object
+    sectionSpacing: PropTypes.object,
+    fetchData: PropTypes.func
+};
+
+SearchBox.defaultProps = {
+    fetchData: null
 };
