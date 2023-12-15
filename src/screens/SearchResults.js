@@ -14,31 +14,50 @@ import BackgroundGrey from '../components/common/BackgroundGrey';
 import { NewsListMobileView, NewsListUpperTabletView } from './NewsList';
 import BottomNavigationBar from '../components/app-bar/BottomNavigationBar';
 import { sectionSpacing, spaceFromNavigationBar } from '../utils/commonStyle';
+import useSearchData from '../hooks/useSearchData';
+import { useEventCallback } from '@mui/material';
+import SearchBox from '../components/search-box';
 
 export default function SearchResults() {
     const upperTabletSize = useUpperTabletSize();
     const [searchParams, setSearchParams] = useSearchParams();
-    const [typeKeyword, setTypeKeyword] = useState('');
-    const [searchData, setSearchData] = useState({
-        news: [],
-        novels: [],
-        videos: []
-    });
+    const { searchData, setSearchData } = useSearchData();
 
+    console.log('Search Data ', searchData);
+    // const [searchData, setSearchData] = useState({
+    //     news: [],
+    //     novels: [],
+    //     videos: []
+    // });
+
+    const fetchData = async (keyword) => {
+        // if (keyword > 3) {
+        const { novels, videos, news } = await getSearchData(keyword);
+        setSearchData({
+            news,
+            novels,
+            videos
+        });
+        // }
+    };
     useEffect(() => {
-        async function fetchData(keyword) {
-            const { novels, videos, news } = await getSearchData(keyword);
-            setSearchData({
-                news,
-                novels,
-                videos
-            });
-        }
+        // console.log('searchnput ', searchInput.length);
+        // async function fetchData(keyword) {
+        //     const { novels, videos, news } = await getSearchData(keyword);
+        //     setSearchData({
+        //         news,
+        //         novels,
+        //         videos
+        //     });
+        // }
         fetchData(searchParams.get('keyword') ?? '');
     }, []);
+
+    // useEffect(() => {}, [searchInput]);
     return (
         <>
-            <HeaderSection />
+            {/* <HeaderSection /> */}
+            <SearchBox sectionSpacing={sectionSpacing} fetchData={fetchData} />
             <BackgroundGrey styles={{ ...sectionSpacing, ...spaceFromNavigationBar }}>
                 <CustomTypo
                     variant="h4"
