@@ -55,18 +55,21 @@ export function getLatestNewsByCategories(categoryId) {
 }
 
 export function getNews(keyword = '') {
-    const news = fetch(newsApi + '?_limit=4&q=' + keyword).then((response) => response.json());
-    console.log(news);
+    const news = fetch(newsApi + '?_limit=4&title=' + keyword).then((response) => response.json());
     return news;
 }
 
 export function getNovels(keyword = '') {
-    const novels = fetch(novelsApi + '?_limit=4&q=' + keyword).then((response) => response.json());
+    const novels = fetch(novelsApi + '?_limit=4&title=' + keyword).then((response) =>
+        response.json()
+    );
     return novels;
 }
 
 export function getVideos(keyword = '') {
-    const videos = fetch(videosApi + '?_limit=8&q=' + keyword).then((response) => response.json());
+    const videos = fetch(videosApi + '?_limit=8&title=' + keyword).then((response) =>
+        response.json()
+    );
     return videos;
 }
 
