@@ -1,18 +1,19 @@
 import * as React from 'react';
-import { Suspense } from 'react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Container from '@mui/material/Container';
 
 import AppRoutes from './AppRoutes';
 import AppTheme from './AppTheme';
 
 export default function App() {
+    const queryClient = new QueryClient();
     return (
         <AppTheme>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Container maxWidth="md" sx={{ px: { xs: 0 } }}>
+            <Container maxWidth="md" sx={{ px: { xs: 0 } }}>
+                <QueryClientProvider client={queryClient}>
                     <AppRoutes />
-                </Container>
-            </Suspense>
+                </QueryClientProvider>
+            </Container>
         </AppTheme>
     );
 }
