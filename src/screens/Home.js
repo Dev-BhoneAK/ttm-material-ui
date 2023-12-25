@@ -3,14 +3,12 @@ import { Box } from '@mui/material';
 
 import { getHomeData } from '../utils/api';
 import { sectionSpacing, spaceFromNavigationBar } from '../utils/commonStyle';
-import HeaderSection from '../components/common/HeaderSection';
 import PopularCategories from '../components/home/PopularCategories';
 import BackgroundGrey from '../components/common/BackgroundGrey';
 import PopularNews from '../components/home/PopularNews';
 import LatestNewsByCategories from '../components/home/LatestNewsByCategories';
 import Novels from '../components/home/Novels';
 import MobileTV from '../components/home/Videos';
-import BottomNavigationBar from '../components/app-bar/BottomNavigationBar';
 
 export default function Home() {
     const [homeData, setHomeData] = useState({
@@ -34,7 +32,6 @@ export default function Home() {
     }, []);
     return (
         <>
-            <HeaderSection />
             <Box sx={{ p: '0.5rem 1.5rem' }}>
                 <PopularCategories sectionSpacing={sectionSpacing} />
             </Box>
@@ -53,7 +50,6 @@ export default function Home() {
             <Box sx={{ p: '0 1.5rem', ...spaceFromNavigationBar }}>
                 <MobileTV videos={homeData.videos} sectionSpacing={sectionSpacing} />
             </Box>
-            <BottomNavigationBar />
         </>
     );
 }
