@@ -15,6 +15,7 @@
         "@mui/icons-material": "^5.10.9",
         "@mui/material": "latest",
         "@tanstack/react-query": "^5.12.2",
+        "@tanstack/react-query-devtools": "^5.14.7",
         "json-server": "^0.17.3",
         "mui-image": "^1.0.7",
         "prop-types": "^15.8.1",
