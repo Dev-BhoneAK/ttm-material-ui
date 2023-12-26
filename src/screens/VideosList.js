@@ -5,9 +5,7 @@ import Grid from '@mui/material/Grid';
 import CustomLink from '../components/common/CustomLink';
 import { getVideos } from '../utils/api';
 import { sectionSpacing, spaceFromNavigationBar } from '../utils/commonStyle';
-import HeaderSection from '../components/common/HeaderSection';
 import BackgroundGrey from '../components/common/BackgroundGrey';
-import BottomNavigationBar from '../components/app-bar/BottomNavigationBar';
 import VideoMediaCard from '../components/common/meida-cards/VideoMediaCard';
 
 export default function VideosList() {
@@ -23,13 +21,11 @@ export default function VideosList() {
 
     return (
         <>
-            <HeaderSection />
             <BackgroundGrey styles={{ ...sectionSpacing, ...spaceFromNavigationBar }}>
                 <Grid container spacing={2} alignItems="center" justifyContent="center">
                     <RenderVideosList videosList={videosData} />
                 </Grid>
             </BackgroundGrey>
-            <BottomNavigationBar />
         </>
     );
 }
