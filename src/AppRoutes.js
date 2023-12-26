@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
+import HeaderFooter from './components/common/HeaderFooter';
 import Home from './screens/Home';
 import NewsList from './screens/NewsList';
 import NovelsList from './screens/NovelsList';
@@ -14,16 +15,18 @@ import SearchResults from './screens/SearchResults';
 function AppRoutes() {
     return (
         <Routes>
-            <Route path="/" exact index element={<Home />} />
-            <Route path="/news" element={<NewsList />} />
+            <Route path="/" element={<HeaderFooter />}>
+                <Route index element={<Home />} />
+                <Route path="news" element={<NewsList />} />
+                <Route path="novels" element={<NovelsList />} />
+                <Route path="videos" element={<VideosList />} />
+            </Route>
+            <Route path="search" element={<SearchResults />} />
             <Route path="/news/:news_id" element={<NewsArticlesDetail />} />
-            <Route path="/novels" element={<NovelsList />} />
             <Route path="/novels/:novel_id" element={<NovelDetail />} />
-            <Route path="/videos" element={<VideosList />} />
             <Route path="/videos/:video_id" element={<VideoDetail />} />
             <Route path="/question-answer" element={<QuestionAnswer />} />
             <Route path="/weather" element={<Weather />} />
-            <Route path="/search" element={<SearchResults />} />
         </Routes>
     );
 }
