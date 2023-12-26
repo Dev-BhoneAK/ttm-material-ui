@@ -1,10 +1,11 @@
 import { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import ColorModeContext from './context/ColorModeContext';
 import { responsiveFontSizes } from '@mui/material/styles';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
+import ColorModeContext from './context/ColorModeContext';
 import useLocalStorage from './hooks/useLocalStorage';
 
 function AppTheme(props) {
@@ -91,7 +92,9 @@ function AppTheme(props) {
         <ColorModeContext.Provider value={colorMode}>
             <ThemeProvider theme={themeWithResponsiveFont}>
                 <CssBaseline />
-                {props.children}
+                <Container maxWidth="md" sx={{ px: { xs: 0 } }}>
+                    {props.children}
+                </Container>
             </ThemeProvider>
         </ColorModeContext.Provider>
     );
