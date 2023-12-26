@@ -40,14 +40,16 @@ export function getPopularNews() {
     return popularNews;
 }
 
-export function getCategories(parentCategory) {
+export function getCategories({ queryKey }) {
+    const { parentCategory } = queryKey[1];
     const categories = fetch(categoriesApi + '?parentCategory=' + parentCategory).then((response) =>
         response.json()
     );
     return categories;
 }
 
-export function getLatestNewsByCategories(categoryId) {
+export function getLatestNewsByCategories({ queryKey }) {
+    const { categoryId } = queryKey[1];
     const latestNewsByCategories = fetch(
         newsApi + '?_sort=publishedDate&_order=desc&_limit=4&categoryId=' + categoryId
     ).then((response) => response.json());
